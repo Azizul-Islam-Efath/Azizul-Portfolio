@@ -84,7 +84,7 @@ export default function About() {
               </a>
 
               <a
-                href="https://www.linkedin.com/in/azizul-islam-efath/"
+                href="https://www.linkedin.com/in/azizulislamefath/"
                 target="_blank"
                 rel="noreferrer"
                 className="text-sm font-medium text-orange-400 hover:text-orange-300 underline underline-offset-4 transition"
