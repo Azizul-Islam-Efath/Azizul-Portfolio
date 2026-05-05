@@ -16,9 +16,6 @@ export default function Contact() {
   return (
     <section id="contact" className="py-28 px-6 md:px-16 max-w-6xl mx-auto">
       <Reveal>
-        <p className="text-orange-400 text-xs font-semibold tracking-[0.25em] uppercase mb-3">
-          04 — Contact
-        </p>
         <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Let's Work Together</h2>
         <p className="text-zinc-400 mb-16 max-w-md">
           Have a project in mind, a question, or just want to say hi? My inbox is always open.
@@ -29,9 +26,9 @@ export default function Contact() {
         <Reveal delay={0.1}>
           <div className="space-y-8">
             {[
-              { label: "Email", value: "azizulislam.efath@gmail.com", href: "mailto:azizulislam.efath@gmail.com", icon: "✉" },
+              { label: "Email", value: "azizulislam5360@gmail.com", href: "mailto:azizulislam5360@gmail.com", icon: "✉" },
               { label: "GitHub", value: "github.com/Azizul-Islam-Efath", href: "https://github.com/Azizul-Islam-Efath", icon: "⌥" },
-              { label: "LinkedIn", value: "linkedin.com/in/azizul-islam-efath", href: "https://www.linkedin.com/in/azizul-islam-efath/", icon: "in" },
+              { label: "LinkedIn", value: "linkedin.com/in/azizul-islam-efath", href: "https://www.linkedin.com/in/azizulislamefath/", icon: "in" },
             ].map((c) => (
               <a key={c.label} href={c.href} target="_blank" rel="noreferrer"
                 className="group flex items-start gap-5 p-5 rounded-xl border border-zinc-800 hover:border-zinc-600 bg-zinc-900/40 hover:bg-zinc-900/80 transition-all duration-200">
