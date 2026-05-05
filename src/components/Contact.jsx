@@ -27,8 +27,8 @@ export default function Contact() {
           <div className="space-y-8">
             {[
               { label: "Email", value: "azizulislam5360@gmail.com", href: "mailto:azizulislam5360@gmail.com", icon: "✉" },
-              { label: "GitHub", value: "github.com/Azizul-Islam-Efath", href: "https://github.com/Azizul-Islam-Efath", icon: "⌥" },
-              { label: "LinkedIn", value: "linkedin.com/in/azizul-islam-efath", href: "https://www.linkedin.com/in/azizulislamefath/", icon: "in" },
+              { label: "GitHub", value: "Azizul-Islam-Efath", href: "https://github.com/Azizul-Islam-Efath", icon: "⌥" },
+              { label: "LinkedIn", value: "AZIZUL ISLAM", href: "https://www.linkedin.com/in/azizulislamefath/", icon: "in" },
             ].map((c) => (
               <a key={c.label} href={c.href} target="_blank" rel="noreferrer"
                 className="group flex items-start gap-5 p-5 rounded-xl border border-zinc-800 hover:border-zinc-600 bg-zinc-900/40 hover:bg-zinc-900/80 transition-all duration-200">
