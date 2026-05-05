@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #050505;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* 🌌 Ambient background glow */
+body::before {
+  content: "";
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255,140,0,0.15), transparent 60%);
+  top: -200px;
+  left: -200px;
+  filter: blur(80px);
+  z-index: -1;
+}
+
+/* subtle noise overlay (premium feel) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#ff7a18, #af002d);
+  border-radius: 10px;
+}
