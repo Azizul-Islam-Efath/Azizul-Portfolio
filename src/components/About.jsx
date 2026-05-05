@@ -62,7 +62,7 @@ export default function About() {
           <div className="space-y-6 text-zinc-400 leading-relaxed text-[15px]">
             
             <p>
-              I'm <span className="text-white font-medium">Md. Azizul Islam</span>, a Computer Science & Engineering student from Bangladesh with a deep passion for building efficient software and solving complex problems.
+              I'm <span className="text-white font-medium">Md. Azizul Islam</span>, a Software Engineering student from Bangladesh with a deep passion for building efficient software and solving complex problems.
             </p>
 
             <p>
