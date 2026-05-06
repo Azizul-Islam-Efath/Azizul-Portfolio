@@ -56,7 +56,7 @@ export default function Experience() {
     <section id="experience" className="py-28 px-6 md:px-16 max-w-4xl mx-auto">
       <Reveal>
         <p className="text-orange-400 text-xs font-semibold tracking-[0.25em] uppercase mb-3">
-          03 — Journey
+          My Journey
         </p>
         <h2 className="text-4xl md:text-5xl font-black text-white mb-16">
           Experience &amp; Education

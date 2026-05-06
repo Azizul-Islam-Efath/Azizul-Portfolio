@@ -88,7 +88,7 @@ export default function Projects() {
     <section id="projects" className="py-28 px-6 md:px-16 max-w-6xl mx-auto">
       <Reveal>
         <p className="text-orange-400 text-xs font-semibold tracking-[0.25em] uppercase mb-3">
-          02 — Projects
+          Projects
         </p>
         <h2 className="text-4xl md:text-5xl font-black text-white mb-16">Things I've Built</h2>
       </Reveal>
