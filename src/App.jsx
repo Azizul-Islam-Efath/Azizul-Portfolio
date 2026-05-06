@@ -11,7 +11,11 @@ import Projects from "./components/Projects";
 import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import SectionWrapper from "./components/SectionWrapper";
+
+// ✅ NEW SYSTEMS
+import StickySection from "./components/StickySection";
+import HorizontalScroll from "./components/HorizontalScroll";
+import Parallax from "./components/Parallax";
 
 const NAV_LINKS = ["Home", "About", "Projects", "Experience", "Contact"];
 
@@ -45,34 +49,41 @@ export default function App() {
 
   return (
     <div className="min-h-screen text-white relative overflow-x-hidden">
-      
+
       {/* 🔥 GLOBAL SYSTEM */}
       <SmoothScroll />
       <Background />
       <CursorGlow />
 
+      {/* NAV */}
       <Navbar active={activeSection} />
 
-      <SectionWrapper>
+      {/* HERO (parallax entry) */}
+      <Parallax speed={0.2}>
         <Hero />
-      </SectionWrapper>
+      </Parallax>
 
-      <SectionWrapper>
+      {/* ABOUT (sticky section) */}
+      <StickySection>
         <About />
-      </SectionWrapper>
+      </StickySection>
 
-      <SectionWrapper>
+      {/* PROJECTS (horizontal scroll) */}
+      <HorizontalScroll>
         <Projects />
-      </SectionWrapper>
+      </HorizontalScroll>
 
-      <SectionWrapper>
+      {/* EXPERIENCE */}
+      <StickySection>
         <Experience />
-      </SectionWrapper>
+      </StickySection>
 
-      <SectionWrapper>
+      {/* CONTACT */}
+      <StickySection>
         <Contact />
-      </SectionWrapper>
+      </StickySection>
 
+      {/* FOOTER */}
       <Footer />
     </div>
   );
