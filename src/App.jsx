@@ -1,9 +1,3 @@
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// register plugin (MUST be before usage)
-gsap.registerPlugin(ScrollTrigger);
-
 import CursorGlow from "./components/CursorGlow";
 import Background from "./components/Background";
 
@@ -52,38 +46,43 @@ export default function App() {
   }, []);
 
   return (
-  <div className="min-h-screen text-white relative overflow-x-hidden">
+    <div className="min-h-screen text-white relative overflow-x-hidden bg-[#07070a]">
 
-    <Background />
-    <CursorGlow />
+      {/* 🌌 GLOBAL LAYERS */}
+      <Background />
+      <CursorGlow />
 
-    <Navbar active={activeSection} />
+      {/* NAVBAR */}
+      <Navbar active={activeSection} />
 
-    <main>
+      <main className="relative z-10">
 
-      <section id="home" className="min-h-screen flex items-center justify-center">
-        <Hero />
-      </section>
+        {/* HERO (FULL SCREEN) */}
+        <section id="home" className="min-h-screen flex items-center justify-center">
+          <Hero />
+        </section>
 
-      <section id="about" className="min-h-screen flex items-center">
-        <About />
-      </section>
+        {/* NORMAL SECTIONS (NO MORE EMPTY GAP SCREENS) */}
+        <section id="about" className="py-28 flex items-center justify-center">
+          <About />
+        </section>
 
-      <section id="projects" className="min-h-screen flex items-center">
-        <Projects />
-      </section>
+        <section id="projects" className="py-28 flex items-center justify-center">
+          <Projects />
+        </section>
 
-      <section id="experience" className="min-h-screen flex items-center">
-        <Experience />
-      </section>
+        <section id="experience" className="py-28 flex items-center justify-center">
+          <Experience />
+        </section>
 
-      <section id="contact" className="min-h-screen flex items-center">
-        <Contact />
-      </section>
+        <section id="contact" className="py-28 flex items-center justify-center">
+          <Contact />
+        </section>
 
-      <Footer />
+        {/* FOOTER */}
+        <Footer />
 
-    </main>
-  </div>
-);
+      </main>
+    </div>
+  );
 }
