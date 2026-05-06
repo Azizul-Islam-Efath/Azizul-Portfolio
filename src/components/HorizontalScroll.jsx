@@ -8,14 +8,22 @@ export default function HorizontalScroll({ children }) {
     target: ref,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-70%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
 
   return (
-    <section ref={ref} className="relative h-[250vh] overflow-hidden">
+    <section ref={ref} className="relative h-[300vh]">
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-8 px-16">
+        
+        <motion.div
+          style={{ x }}
+          drag="x"
+          dragConstraints={{ left: -1200, right: 0 }}
+          dragElastic={0.08}
+          className="flex gap-10 px-16 cursor-grab active:cursor-grabbing"
+        >
           {children}
         </motion.div>
+
       </div>
     </section>
   );
