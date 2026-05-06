@@ -14,7 +14,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-28 px-6 md:px-16 max-w-6xl mx-auto">
+    <section id="contact" className="py-16 md:py-20 px-6 md:px-16 max-w-6xl mx-auto">
       <Reveal>
         <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Let's Work Together</h2>
         <p className="text-zinc-400 mb-16 max-w-md">

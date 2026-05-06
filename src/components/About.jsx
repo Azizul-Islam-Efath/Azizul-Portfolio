@@ -44,7 +44,7 @@ function SkillBar({ skill, delay }) {
 
 export default function About() {
   return (
-    <section id="about" className="relative py-32 px-6 md:px-16 max-w-6xl mx-auto">
+    <section id="about" className="relative py-16 md:py-20 px-6 md:px-16 max-w-6xl mx-auto">
 
       {/* 🔥 Background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-orange-500/10 blur-[120px] -z-10"></div>

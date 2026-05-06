@@ -8,8 +8,8 @@ export default function ScrollScenes() {
   useEffect(() => {
     const sections = gsap.utils.toArray("section");
 
-    sections.forEach((section, i) => {
-      gsap.fromTo(
+    const animations = sections.map((section) => {
+      return gsap.fromTo(
         section,
         {
           opacity: 0,
@@ -33,6 +33,11 @@ export default function ScrollScenes() {
         }
       );
     });
+
+    // ✅ CLEANUP (VERY IMPORTANT)
+    return () => {
+      animations.forEach((a) => a.scrollTrigger?.kill());
+    };
   }, []);
 
   return null;

@@ -5,7 +5,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 import CursorGlow from "./components/CursorGlow";
-import SmoothScroll from "./components/SmoothScroll";
 import Background from "./components/Background";
 
 import { useState, useEffect } from "react";
@@ -17,11 +16,6 @@ import Projects from "./components/Projects";
 import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-
-// OPTIONAL SYSTEMS (safe usage)
-import StickySection from "./components/StickySection";
-import HorizontalScroll from "./components/HorizontalScroll";
-import Parallax from "./components/Parallax";
 
 const NAV_LINKS = ["Home", "About", "Projects", "Experience", "Contact"];
 
@@ -58,53 +52,38 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen text-white relative overflow-x-hidden">
+  <div className="min-h-screen text-white relative overflow-x-hidden">
 
-      {/* 🌌 GLOBAL CINEMATIC LAYERS */}
-      <Background />
-      <CursorGlow />
-      <SmoothScroll />
+    <Background />
+    <CursorGlow />
 
-      {/* NAV */}
-      <Navbar active={activeSection} />
+    <Navbar active={activeSection} />
 
-      {/* HERO */}
-      <section id="home">
-        <Parallax speed={0.15}>
-          <Hero />
-        </Parallax>
+    <main>
+
+      <section id="home" className="min-h-screen flex items-center">
+        <Hero />
       </section>
 
-      {/* ABOUT */}
-      <section id="about">
-        <StickySection>
-          <About />
-        </StickySection>
+      <section id="about" className="min-h-screen flex items-center">
+        <About />
       </section>
 
-      {/* PROJECTS (horizontal cinematic flow) */}
-      <section id="projects">
-        <HorizontalScroll>
-          <Projects />
-        </HorizontalScroll>
+      <section id="projects" className="min-h-screen flex items-center">
+        <Projects />
       </section>
 
-      {/* EXPERIENCE */}
-      <section id="experience">
-        <StickySection>
-          <Experience />
-        </StickySection>
+      <section id="experience" className="min-h-screen flex items-center">
+        <Experience />
       </section>
 
-      {/* CONTACT */}
-      <section id="contact">
-        <StickySection>
-          <Contact />
-        </StickySection>
+      <section id="contact" className="min-h-screen flex items-center">
+        <Contact />
       </section>
 
-      {/* FOOTER */}
       <Footer />
-    </div>
-  );
+
+    </main>
+  </div>
+);
 }

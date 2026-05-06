@@ -61,3 +61,12 @@ section {
   scroll-snap-stop: always;
   min-height: 100vh;
 }
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  scroll-snap-align: start;
+}

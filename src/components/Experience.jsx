@@ -53,7 +53,7 @@ function TimelineItem({ item }) {
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-28 px-6 md:px-16 max-w-4xl mx-auto">
+    <section id="experience" className="py-16 md:py-20 px-6 md:px-16 max-w-4xl mx-auto">
       <Reveal>
         <p className="text-orange-400 text-xs font-semibold tracking-[0.25em] uppercase mb-3">
           My Journey
