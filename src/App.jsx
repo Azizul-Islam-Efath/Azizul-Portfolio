@@ -1,7 +1,10 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);import CursorGlow from "./components/CursorGlow";
+// register plugin (MUST be before usage)
+gsap.registerPlugin(ScrollTrigger);
+
+import CursorGlow from "./components/CursorGlow";
 import SmoothScroll from "./components/SmoothScroll";
 import Background from "./components/Background";
 
@@ -15,7 +18,7 @@ import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
-// ✅ NEW SYSTEMS
+// OPTIONAL SYSTEMS (safe usage)
 import StickySection from "./components/StickySection";
 import HorizontalScroll from "./components/HorizontalScroll";
 import Parallax from "./components/Parallax";
@@ -33,18 +36,22 @@ export default function App() {
 
       sections.forEach((id) => {
         const el = document.getElementById(id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 150 && rect.bottom >= 150) {
-            current = id;
-          }
+        if (!el) return;
+
+        const rect = el.getBoundingClientRect();
+
+        if (
+          rect.top <= window.innerHeight * 0.4 &&
+          rect.bottom >= window.innerHeight * 0.4
+        ) {
+          current = id;
         }
       });
 
       setActiveSection(current);
     };
 
-    window.addEventListener("scroll", handler);
+    window.addEventListener("scroll", handler, { passive: true });
     handler();
 
     return () => window.removeEventListener("scroll", handler);
@@ -53,38 +60,48 @@ export default function App() {
   return (
     <div className="min-h-screen text-white relative overflow-x-hidden">
 
-      {/* 🔥 GLOBAL SYSTEM */}
-      <SmoothScroll />
+      {/* 🌌 GLOBAL CINEMATIC LAYERS */}
       <Background />
       <CursorGlow />
+      <SmoothScroll />
 
       {/* NAV */}
       <Navbar active={activeSection} />
 
-      {/* HERO (parallax entry) */}
-      <Parallax speed={0.2}>
-        <Hero />
-      </Parallax>
+      {/* HERO */}
+      <section id="home">
+        <Parallax speed={0.15}>
+          <Hero />
+        </Parallax>
+      </section>
 
-      {/* ABOUT (sticky section) */}
-      <StickySection>
-        <About />
-      </StickySection>
+      {/* ABOUT */}
+      <section id="about">
+        <StickySection>
+          <About />
+        </StickySection>
+      </section>
 
-      {/* PROJECTS (horizontal scroll) */}
-      <HorizontalScroll>
-        <Projects />
-      </HorizontalScroll>
+      {/* PROJECTS (horizontal cinematic flow) */}
+      <section id="projects">
+        <HorizontalScroll>
+          <Projects />
+        </HorizontalScroll>
+      </section>
 
       {/* EXPERIENCE */}
-      <StickySection>
-        <Experience />
-      </StickySection>
+      <section id="experience">
+        <StickySection>
+          <Experience />
+        </StickySection>
+      </section>
 
       {/* CONTACT */}
-      <StickySection>
-        <Contact />
-      </StickySection>
+      <section id="contact">
+        <StickySection>
+          <Contact />
+        </StickySection>
+      </section>
 
       {/* FOOTER */}
       <Footer />

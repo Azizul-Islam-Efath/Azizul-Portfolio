@@ -51,3 +51,13 @@ body::after {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+html {
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 100vh;
+}
