@@ -1,17 +1,43 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 export default function SectionWrapper({ children }) {
+  const ref = useRef();
+
+  useEffect(() => {
+    const el = ref.current;
+
+    gsap.fromTo(
+      el,
+      {
+        opacity: 0,
+        y: 80,
+        scale: 0.96,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1.2,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  }, []);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 80 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-    >
-      {children}
-    </motion.div>
-  );
+  <div
+    ref={ref}
+    className="relative will-change-transform"
+    style={{
+      transformOrigin: "top center",
+    }}
+  >
+    {children}
+  </div>
+);
 }

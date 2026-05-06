@@ -1,4 +1,7 @@
-import CursorGlow from "./components/CursorGlow";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);import CursorGlow from "./components/CursorGlow";
 import SmoothScroll from "./components/SmoothScroll";
 import Background from "./components/Background";
 
