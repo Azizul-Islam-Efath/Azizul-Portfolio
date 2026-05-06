@@ -27,7 +27,10 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center text-center">
+    <section
+  id="home"
+  className="min-h-screen flex items-center justify-center px-6 md:px-12 relative"
+>
       {/* 🌌 CINEMATIC BACKGROUND */}
       <div className="absolute inset-0 pointer-events-none">
         <div
