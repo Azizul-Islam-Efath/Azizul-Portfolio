@@ -1,7 +1,9 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-zinc-900 py-8 px-6 md:px-16 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <span className="text-zinc-600 text-sm">© {new Date().getFullYear()} Md. Azizul Islam</span>
+    <footer className="border-t border-white/10 py-10 px-6 md:px-16 text-center">
+      <p className="text-white/50 text-sm">
+        © {new Date().getFullYear()} Md. Azizul Islam
+      </p>
     </footer>
   );
 }

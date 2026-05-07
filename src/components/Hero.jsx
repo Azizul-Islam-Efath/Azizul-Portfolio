@@ -9,17 +9,10 @@ export default function Hero() {
     const ctx = gsap.context(() => {
       gsap.from(".hero-item", {
         opacity: 0,
-        y: 60,
+        y: 50,
         duration: 1.2,
         ease: "power4.out",
-        stagger: 0.15,
-      });
-
-      gsap.from(".hero-title", {
-        opacity: 0,
-        scale: 0.9,
-        duration: 1.4,
-        ease: "power4.out",
+        stagger: 0.12,
       });
     }, ref);
 
@@ -28,48 +21,25 @@ export default function Hero() {
 
   return (
     <section
-  id="home"
-  className="min-h-screen flex items-center justify-center px-6 md:px-12 relative"
->
-      {/* 🌌 CINEMATIC BACKGROUND */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-  "radial-gradient(ellipse at 50% 30%, rgba(167,139,250,0.12), transparent 60%), radial-gradient(ellipse at 80% 70%, rgba(96,165,250,0.10), transparent 55%)",
-          }}
-        />
+      ref={ref}
+      id="home"
+      className="min-h-screen flex items-center justify-center px-6 relative"
+    >
+      <div className="relative z-10 text-center max-w-5xl">
 
-        <div
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-
-        {/* vignette */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,black_100%)] opacity-60" />
-      </div>
-
-      {/* CONTENT */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-
-        <p className="hero-item text-orange-400 text-sm font-semibold tracking-[0.25em] uppercase mb-6">
-          Hello, it's 👋
+        <p className="hero-item text-[#F3DDD0] uppercase tracking-[0.3em] text-sm mb-6">
+          Hello, It's Me 👋
         </p>
 
-        <h1 className="hero-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-none tracking-tight mb-4">
+        <h1 className="hero-item text-6xl md:text-8xl font-black text-white leading-none tracking-tight">
           MD. AZIZUL
           <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#F3DDD0]">
             ISLAM
           </span>
         </h1>
 
-        <p className="hero-item text-lg sm:text-xl text-zinc-400 mb-10 font-light">
+        <p className="hero-item text-lg md:text-xl text-white/75 mt-8 mb-10">
           <Typewriter
             words={[
               "Software Developer",
@@ -80,35 +50,30 @@ export default function Hero() {
           />
         </p>
 
-        {/* BUTTONS */}
-        <div className="hero-item flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="hero-item flex flex-col sm:flex-row gap-5 justify-center">
 
           <button
             onClick={() =>
-              document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+              document
+                .getElementById("projects")
+                ?.scrollIntoView({ behavior: "smooth" })
             }
-            className="group px-8 py-3.5 bg-orange-500 hover:bg-orange-400 text-white font-semibold rounded-full transition-all duration-300 hover:shadow-[0_0_40px_rgba(249,115,22,0.4)] hover:-translate-y-1"
+            className="px-10 py-4 rounded-full bg-[#E8C7B6] text-black font-semibold hover:-translate-y-1 transition-all duration-300"
           >
             View Projects
-            <span className="ml-2 inline-block transition-transform group-hover:translate-x-2">
-              →
-            </span>
           </button>
 
           <button
             onClick={() =>
-              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+              document
+                .getElementById("contact")
+                ?.scrollIntoView({ behavior: "smooth" })
             }
-            className="px-8 py-3.5 border border-zinc-700 hover:border-zinc-400 text-zinc-300 hover:text-white font-semibold rounded-full transition-all duration-300 hover:-translate-y-1"
+            className="px-10 py-4 rounded-full border border-white/20 text-white hover:bg-white/10 transition-all duration-300"
           >
-            Get in Touch
+            Contact Me
           </button>
-        </div>
 
-        {/* SCROLL INDICATOR */}
-        <div className="hero-item absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-zinc-600">
-          <span className="text-xs tracking-widest uppercase">Scroll</span>
-          <div className="w-px h-10 bg-gradient-to-b from-zinc-600 to-transparent animate-pulse" />
         </div>
 
       </div>

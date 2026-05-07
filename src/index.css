@@ -5,25 +5,25 @@ html {
 }
 
 body {
-  background: #050505;
+  background: #0f1720;
   color: white;
   overflow-x: hidden;
+  font-family: "Outfit", sans-serif;
 }
 
-/* 🌌 Ambient background glow */
+/* Ambient cinematic glow */
 body::before {
   content: "";
   position: fixed;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(255,140,0,0.15), transparent 60%);
-  top: -200px;
-  left: -200px;
-  filter: blur(80px);
-  z-index: -1;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(31,151,180,0.25), transparent 35%),
+    radial-gradient(circle at 80% 70%, rgba(232,199,182,0.2), transparent 40%);
+  z-index: -2;
+  filter: blur(90px);
 }
 
-/* subtle noise overlay (premium feel) */
+/* premium noise */
 body::after {
   content: "";
   position: fixed;
@@ -34,39 +34,15 @@ body::after {
   z-index: -1;
 }
 
-/* scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(#ff7a18, #af002d);
-  border-radius: 10px;
+  background: #E8C7B6;
+  border-radius: 999px;
 }
 
-/* hide scrollbar */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-html {
-  scroll-snap-type: y mandatory;
-}
-
-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  min-height: 100vh;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-}
-
-section {
-  scroll-snap-align: start;
 }

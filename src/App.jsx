@@ -46,7 +46,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen text-white relative overflow-x-hidden bg-[#07070a]">
+    <div className="min-h-screen text-white relative overflow-x-hidden">
 
       {/* 🌌 GLOBAL LAYERS */}
       <Background />
