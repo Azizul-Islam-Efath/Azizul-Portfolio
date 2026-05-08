@@ -43,62 +43,27 @@ export default function Hero() {
       id="home"
       className="
         relative
+        w-full
         min-h-screen
         overflow-hidden
         bg-[#07111B]
         text-white
       "
     >
-      {/* ================= BACKGROUND ================= */}
+      {/* ================= BACKGROUND GLOWS ================= */}
 
       {/* LEFT BLUE GLOW */}
-      <div className="absolute left-[-10%] top-0 w-[700px] h-[700px] bg-cyan-500/30 blur-[180px] rounded-full" />
+      <div className="absolute left-[-10%] top-0 w-[900px] h-[900px] bg-cyan-500/30 blur-[180px] rounded-full" />
 
       {/* RIGHT PEACH GLOW */}
-      <div className="absolute right-[-10%] top-[10%] w-[700px] h-[700px] bg-orange-200/20 blur-[180px] rounded-full" />
+      <div className="absolute right-[-10%] top-[10%] w-[900px] h-[900px] bg-orange-200/20 blur-[180px] rounded-full" />
 
       {/* CENTER LIGHT */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_55%)]" />
 
-      {/* ================= HEADER ================= */}
+      {/* ================= FULLSCREEN HERO IMAGE ================= */}
 
-      <header className="absolute top-0 left-0 w-full z-50 px-8 md:px-14 py-8 flex items-center justify-between">
-
-        {/* LOGO */}
-        <div className="text-4xl font-black tracking-tight">
-          AZ.
-        </div>
-
-        {/* NAV */}
-        <nav className="hidden md:flex items-center gap-12 text-white/80 text-lg">
-
-          <a href="#home" className="hover:text-white transition">
-            Home
-          </a>
-
-          <a href="#about" className="hover:text-white transition">
-            About
-          </a>
-
-          <a href="#projects" className="hover:text-white transition">
-            Projects
-          </a>
-
-          <a href="#experience" className="hover:text-white transition">
-            Experience
-          </a>
-
-          <a href="#contact" className="hover:text-white transition">
-            Contact
-          </a>
-
-        </nav>
-
-      </header>
-
-      {/* ================= HERO IMAGE ================= */}
-
-      <div className="absolute inset-0 flex items-center justify-center">
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
 
         {/* IMAGE */}
         <img
@@ -106,38 +71,49 @@ export default function Hero() {
           alt="Azizul"
           className="
             hero-image
-            relative
-            z-10
-            w-[500px]
-            md:w-[650px]
-            lg:w-[760px]
-            xl:w-[820px]
-            object-contain
-            opacity-[0.28]
+            absolute
+            left-1/2
+            top-1/2
+            -translate-x-1/2
+            -translate-y-1/2
+            w-[1200px]
+            md:w-[1400px]
+            lg:w-[1600px]
+            xl:w-[1800px]
+            max-w-none
+            object-cover
+            opacity-[0.23]
             mix-blend-lighten
-            select-none
             pointer-events-none
+            select-none
           "
         />
 
-        {/* DARK FADE */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#07111B]/85 via-transparent to-[#07111B]/70" />
+        {/* LEFT DARK GRADIENT */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#07111B]/90 via-[#07111B]/35 to-transparent" />
+
+        {/* RIGHT PEACH LIGHT */}
+        <div className="absolute inset-0 bg-gradient-to-l from-[#ffdcc2]/20 via-transparent to-transparent" />
+
+        {/* CENTER SOFT LIGHT */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_60%)]" />
 
       </div>
 
-      {/* ================= DECOR ELEMENTS ================= */}
+      {/* ================= DECOR CIRCLES ================= */}
 
-      {/* BIG CIRCLES */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
 
-        <div className="w-[900px] h-[900px] rounded-full border border-white/10" />
+        <div className="w-[1400px] h-[1400px] rounded-full border border-white/10" />
 
-        <div className="absolute w-[650px] h-[650px] rounded-full border border-white/10" />
+        <div className="absolute w-[950px] h-[950px] rounded-full border border-white/10" />
 
       </div>
 
-      {/* FLOATING CODE BOX 1 */}
-      <div className="floating absolute top-[18%] left-[3%] hidden lg:block">
+      {/* ================= FLOATING UI ELEMENTS ================= */}
+
+      {/* CODE BOX */}
+      <div className="floating absolute top-[16%] left-[3%] hidden lg:block">
 
         <div className="w-[280px] rounded-3xl border border-cyan-200/10 bg-white/[0.03] backdrop-blur-2xl p-6 shadow-[0_0_40px_rgba(0,255,255,0.05)]">
 
@@ -160,7 +136,7 @@ export default function Hero() {
 
       </div>
 
-      {/* FLOATING CSS BOX */}
+      {/* CSS BOX */}
       <div className="floating absolute bottom-[24%] left-[4%] hidden lg:block">
 
         <div className="w-[240px] rounded-3xl border border-cyan-200/10 bg-white/[0.03] backdrop-blur-2xl p-6">
@@ -178,7 +154,7 @@ export default function Hero() {
 
       </div>
 
-      {/* FLOATING TERMINAL */}
+      {/* TERMINAL */}
       <div className="floating absolute bottom-[8%] left-[3%] hidden lg:block">
 
         <div className="w-[260px] rounded-3xl border border-cyan-200/10 bg-white/[0.03] backdrop-blur-2xl p-5">
@@ -194,6 +170,21 @@ export default function Hero() {
 
         </div>
 
+      </div>
+
+      {/* FLOATING ICON */}
+      <div className="floating absolute top-[28%] left-[30%] hidden lg:flex items-center justify-center w-20 h-20 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl text-4xl text-white/70">
+        {"</>"}
+      </div>
+
+      {/* FLOATING ICON */}
+      <div className="floating absolute bottom-[18%] left-[26%] hidden lg:flex items-center justify-center w-20 h-20 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl text-4xl text-white/70">
+        {"{}"}
+      </div>
+
+      {/* FLOATING ICON */}
+      <div className="floating absolute bottom-[10%] left-[20%] hidden lg:flex items-center justify-center w-20 h-20 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl text-4xl text-white/70">
+        🌐
       </div>
 
       {/* RIGHT SECURITY GLOBE */}
@@ -212,7 +203,7 @@ export default function Hero() {
 
       </div>
 
-      {/* ACCESS GRANTED */}
+      {/* ACCESS */}
       <div className="floating absolute right-[12%] top-[32%] hidden lg:block">
 
         <div className="px-6 py-4 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl text-white/70">
@@ -236,11 +227,11 @@ export default function Hero() {
 
       {/* ================= MAIN CONTENT ================= */}
 
-      <div className="relative z-20 min-h-screen flex items-center justify-center px-6">
+      <div className="relative z-20 w-full min-h-screen flex items-center justify-center px-6">
 
         <div className="text-center max-w-5xl">
 
-          {/* TOP BADGE */}
+          {/* TAG */}
           <div className="hero-item inline-flex items-center gap-3 px-6 py-3 rounded-full border border-cyan-100/10 bg-white/[0.04] backdrop-blur-xl mb-8">
 
             <div className="w-2 h-2 rounded-full bg-cyan-300 animate-pulse" />
@@ -294,7 +285,7 @@ export default function Hero() {
           {/* BUTTONS */}
           <div className="hero-item mt-14 flex flex-col sm:flex-row items-center justify-center gap-6">
 
-            {/* PRIMARY */}
+            {/* PRIMARY BUTTON */}
             <button
               onClick={() =>
                 document
@@ -329,7 +320,7 @@ export default function Hero() {
 
             </button>
 
-            {/* SECONDARY */}
+            {/* SECONDARY BUTTON */}
             <button
               onClick={() =>
                 document
@@ -371,6 +362,7 @@ export default function Hero() {
         </div>
 
       </div>
+
     </section>
   );
 }
