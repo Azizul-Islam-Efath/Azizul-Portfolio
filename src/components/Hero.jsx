@@ -12,13 +12,13 @@ export default function Hero() {
       gsap.from(".hero-item", {
         opacity: 0,
         y: 40,
-        duration: 1.2,
-        stagger: 0.12,
-        ease: "power4.out",
+        duration: 1,
+        stagger: 0.1,
+        ease: "power3.out",
       });
 
-      gsap.to(".floating-orb", {
-        y: -25,
+      gsap.to(".floating", {
+        y: -20,
         duration: 4,
         repeat: -1,
         yoyo: true,
@@ -41,120 +41,211 @@ export default function Hero() {
     <section
       ref={ref}
       id="home"
-      className="relative min-h-screen overflow-hidden bg-[#07111A]"
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        bg-[#07111B]
+        text-white
+      "
     >
+      {/* ================= BACKGROUND ================= */}
 
-      {/* ================= NAVBAR SPACE ================= */}
-      <div className="absolute inset-0">
+      {/* LEFT BLUE GLOW */}
+      <div className="absolute left-[-10%] top-0 w-[700px] h-[700px] bg-cyan-500/30 blur-[180px] rounded-full" />
 
-        {/* BACKGROUND IMAGE */}
+      {/* RIGHT PEACH GLOW */}
+      <div className="absolute right-[-10%] top-[10%] w-[700px] h-[700px] bg-orange-200/20 blur-[180px] rounded-full" />
+
+      {/* CENTER LIGHT */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_55%)]" />
+
+      {/* ================= HEADER ================= */}
+
+      <header className="absolute top-0 left-0 w-full z-50 px-8 md:px-14 py-8 flex items-center justify-between">
+
+        {/* LOGO */}
+        <div className="text-4xl font-black tracking-tight">
+          AZ.
+        </div>
+
+        {/* NAV */}
+        <nav className="hidden md:flex items-center gap-12 text-white/80 text-lg">
+
+          <a href="#home" className="hover:text-white transition">
+            Home
+          </a>
+
+          <a href="#about" className="hover:text-white transition">
+            About
+          </a>
+
+          <a href="#projects" className="hover:text-white transition">
+            Projects
+          </a>
+
+          <a href="#experience" className="hover:text-white transition">
+            Experience
+          </a>
+
+          <a href="#contact" className="hover:text-white transition">
+            Contact
+          </a>
+
+        </nav>
+
+      </header>
+
+      {/* ================= HERO IMAGE ================= */}
+
+      <div className="absolute inset-0 flex items-center justify-center">
+
+        {/* IMAGE */}
         <img
           src={profileImg}
           alt="Azizul"
           className="
             hero-image
-            absolute
-            left-1/2
-            top-1/2
-            -translate-x-1/2
-            -translate-y-1/2
-            w-[700px]
-            md:w-[850px]
-            lg:w-[950px]
-            xl:w-[1050px]
-            object-cover
-            opacity-35
-            blur-[1px]
+            relative
+            z-10
+            w-[500px]
+            md:w-[650px]
+            lg:w-[760px]
+            xl:w-[820px]
+            object-contain
+            opacity-[0.28]
+            mix-blend-lighten
+            select-none
+            pointer-events-none
           "
         />
 
-        {/* DARK OVERLAY */}
-        <div className="absolute inset-0 bg-[#07111A]/45" />
-
-        {/* LEFT BLUE GLOW */}
-        <div className="floating-orb absolute left-[-10%] top-[15%] w-[500px] h-[500px] rounded-full bg-cyan-400/20 blur-[120px]" />
-
-        {/* RIGHT ORANGE GLOW */}
-        <div className="floating-orb absolute right-[-10%] bottom-[10%] w-[500px] h-[500px] rounded-full bg-orange-200/20 blur-[140px]" />
-
-        {/* CENTER LIGHT */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_60%)]" />
+        {/* DARK FADE */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#07111B]/85 via-transparent to-[#07111B]/70" />
 
       </div>
 
-      {/* ================= DECORATIONS ================= */}
+      {/* ================= DECOR ELEMENTS ================= */}
 
-      {/* BIG CIRCLE */}
-      <div className="absolute left-1/2 top-1/2 w-[900px] h-[900px] border border-white/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
+      {/* BIG CIRCLES */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
 
-      <div className="absolute left-1/2 top-1/2 w-[650px] h-[650px] border border-white/5 rounded-full -translate-x-1/2 -translate-y-1/2" />
+        <div className="w-[900px] h-[900px] rounded-full border border-white/10" />
 
-      {/* CODE CARD */}
-      <div className="hidden lg:block absolute top-[18%] left-[3%] border border-cyan-300/10 bg-white/5 backdrop-blur-xl rounded-3xl p-6 text-cyan-200/40 text-sm leading-8">
-
-        {"<html>"} <br />
-        {"<head>"} <br />
-        {"<title>Azizul Portfolio</title>"} <br />
-        {"</head>"} <br />
-        {"<body>"} <br />
-        {"<div class='hero'>"} <br />
-        {"<h1>Building Secure"} <br />
-        {"& Scalable Web</h1>"} <br />
-        {"</div>"} <br />
-        {"</body>"} <br />
-        {"</html>"}
+        <div className="absolute w-[650px] h-[650px] rounded-full border border-white/10" />
 
       </div>
 
-      {/* CSS CARD */}
-      <div className="hidden lg:block absolute bottom-[22%] left-[3%] border border-cyan-300/10 bg-white/5 backdrop-blur-xl rounded-3xl p-6 text-cyan-200/40 text-sm leading-8">
+      {/* FLOATING CODE BOX 1 */}
+      <div className="floating absolute top-[18%] left-[3%] hidden lg:block">
 
-        .hero {"{"} <br />
-        &nbsp;&nbsp;min-height: 100vh; <br />
-        &nbsp;&nbsp;display: flex; <br />
-        &nbsp;&nbsp;align-items: center; <br />
-        &nbsp;&nbsp;justify-content: center; <br />
-        {"}"}
+        <div className="w-[280px] rounded-3xl border border-cyan-200/10 bg-white/[0.03] backdrop-blur-2xl p-6 shadow-[0_0_40px_rgba(0,255,255,0.05)]">
+
+          <pre className="text-cyan-200/50 text-sm leading-8 whitespace-pre-wrap">
+{`<html>
+<head>
+<title>Azizul Portfolio</title>
+</head>
+
+<body>
+  <div class="hero">
+    <h1>Building Secure
+    & Scalable Web</h1>
+  </div>
+</body>
+</html>`}
+          </pre>
+
+        </div>
 
       </div>
 
-      {/* ACCESS */}
-      <div className="hidden lg:flex absolute top-[35%] right-[8%] px-6 py-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl text-white/70 items-center gap-3">
+      {/* FLOATING CSS BOX */}
+      <div className="floating absolute bottom-[24%] left-[4%] hidden lg:block">
 
-        <div className="w-3 h-3 rounded-full bg-white/70" />
+        <div className="w-[240px] rounded-3xl border border-cyan-200/10 bg-white/[0.03] backdrop-blur-2xl p-6">
 
-        ACCESS GRANTED
+          <pre className="text-cyan-100/40 text-sm leading-7 whitespace-pre-wrap">
+{`.hero {
+ min-height: 100vh;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}`}
+          </pre>
+
+        </div>
 
       </div>
 
-      {/* FINGERPRINT */}
-      <div className="hidden lg:flex absolute bottom-[15%] right-[20%] w-24 h-24 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl items-center justify-center text-5xl text-white/60">
+      {/* FLOATING TERMINAL */}
+      <div className="floating absolute bottom-[8%] left-[3%] hidden lg:block">
 
-        ⌘
+        <div className="w-[260px] rounded-3xl border border-cyan-200/10 bg-white/[0.03] backdrop-blur-2xl p-5">
+
+          <pre className="text-cyan-100/40 text-xs leading-7 whitespace-pre-wrap">
+{`$ npm run dev
+
+> my-portfolio@1.0.0 dev
+> vite
+
+✓ Local: localhost:5173`}
+          </pre>
+
+        </div>
+
+      </div>
+
+      {/* RIGHT SECURITY GLOBE */}
+      <div className="absolute right-[-8%] top-[28%] w-[650px] h-[650px] rounded-full border border-orange-100/10 opacity-60">
+
+        <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(255,220,180,0.18),transparent_70%)]" />
+
+      </div>
+
+      {/* LOCK ICON */}
+      <div className="floating absolute right-[13%] top-[48%] hidden lg:flex items-center justify-center w-40 h-40 rounded-full border border-orange-100/10 bg-white/[0.03] backdrop-blur-xl">
+
+        <div className="text-7xl opacity-80">
+          🔒
+        </div>
+
+      </div>
+
+      {/* ACCESS GRANTED */}
+      <div className="floating absolute right-[12%] top-[32%] hidden lg:block">
+
+        <div className="px-6 py-4 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl text-white/70">
+          ● ACCESS GRANTED
+        </div>
 
       </div>
 
       {/* BINARY */}
-      <div className="hidden lg:block absolute top-[10%] right-[5%] text-white/30 text-sm leading-10 tracking-[0.2em]">
+      <div className="absolute right-[5%] top-[10%] hidden lg:block text-white/20 text-sm tracking-[0.3em] leading-8">
 
-        01001 10110 11101 <br />
-        10110 11101 01001 <br />
-        11101 01001 10110 <br />
+        01001 10110 11101
+        <br />
+        10110 11101 01001
+        <br />
+        11101 01001 10110
+        <br />
         01001 10110 11101
 
       </div>
 
       {/* ================= MAIN CONTENT ================= */}
-      <div className="relative z-10 min-h-screen flex items-center justify-center px-6">
+
+      <div className="relative z-20 min-h-screen flex items-center justify-center px-6">
 
         <div className="text-center max-w-5xl">
 
-          {/* TAG */}
-          <div className="hero-item inline-flex items-center gap-3 px-6 py-3 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-10">
+          {/* TOP BADGE */}
+          <div className="hero-item inline-flex items-center gap-3 px-6 py-3 rounded-full border border-cyan-100/10 bg-white/[0.04] backdrop-blur-xl mb-8">
 
             <div className="w-2 h-2 rounded-full bg-cyan-300 animate-pulse" />
 
-            <span className="text-sm tracking-[0.25em] uppercase text-[#F3DDD0]">
+            <span className="tracking-[0.28em] uppercase text-sm text-[#F3DDD0]">
               Cyber Security • Web Developer
             </span>
 
@@ -167,11 +258,12 @@ export default function Hero() {
               text-6xl
               sm:text-7xl
               md:text-8xl
-              lg:text-[9rem]
+              lg:text-[8rem]
               font-black
-              leading-none
+              leading-[0.9]
               tracking-tight
-              text-white/80
+              text-white/90
+              drop-shadow-[0_0_30px_rgba(255,255,255,0.15)]
             "
           >
 
@@ -186,7 +278,7 @@ export default function Hero() {
           </h1>
 
           {/* TYPEWRITER */}
-          <p className="hero-item text-xl md:text-3xl text-white/60 mt-8 mb-12">
+          <div className="hero-item mt-8 text-xl md:text-3xl text-white/65 font-light">
 
             <Typewriter
               words={[
@@ -197,10 +289,10 @@ export default function Hero() {
               ]}
             />
 
-          </p>
+          </div>
 
           {/* BUTTONS */}
-          <div className="hero-item flex flex-col sm:flex-row gap-6 justify-center">
+          <div className="hero-item mt-14 flex flex-col sm:flex-row items-center justify-center gap-6">
 
             {/* PRIMARY */}
             <button
@@ -210,6 +302,7 @@ export default function Hero() {
                   ?.scrollIntoView({ behavior: "smooth" })
               }
               className="
+                group
                 px-10
                 py-5
                 rounded-full
@@ -220,10 +313,20 @@ export default function Hero() {
                 transition-all
                 duration-500
                 hover:scale-105
-                hover:shadow-[0_0_40px_rgba(255,255,255,0.25)]
+                hover:shadow-[0_0_50px_rgba(255,255,255,0.25)]
               "
             >
-              View Projects →
+
+              <span className="flex items-center gap-3">
+
+                View Projects
+
+                <span className="group-hover:translate-x-1 transition-transform">
+                  →
+                </span>
+
+              </span>
+
             </button>
 
             {/* SECONDARY */}
@@ -234,22 +337,33 @@ export default function Hero() {
                   ?.scrollIntoView({ behavior: "smooth" })
               }
               className="
+                group
                 px-10
                 py-5
                 rounded-full
                 border
-                border-white/15
-                bg-white/5
-                backdrop-blur-xl
+                border-white/20
+                bg-white/[0.03]
+                backdrop-blur-2xl
                 text-white
                 text-lg
                 transition-all
                 duration-500
-                hover:bg-white/10
+                hover:bg-white/[0.06]
                 hover:scale-105
               "
             >
-              Contact Me ↗
+
+              <span className="flex items-center gap-3">
+
+                Contact Me
+
+                <span className="group-hover:translate-x-1 transition-transform">
+                  ↗
+                </span>
+
+              </span>
+
             </button>
 
           </div>
@@ -257,7 +371,6 @@ export default function Hero() {
         </div>
 
       </div>
-
     </section>
   );
 }
