@@ -219,53 +219,59 @@ export default function Hero() {
         </div>
 
         {/* ================= RIGHT SIDE ================= */}
-        <div className="hero-item relative flex justify-center lg:justify-end">
+<div className="hero-item relative flex justify-center lg:justify-end">
 
-          {/* OUTER GLOW */}
-          <div className="profile-glow absolute w-[420px] h-[420px] rounded-full bg-cyan-300/10 blur-[120px]" />
+  {/* OUTER GLOW (slightly stronger + better blend) */}
+  <div className="profile-glow absolute w-[500px] h-[500px] rounded-full bg-cyan-300/15 blur-[140px]" />
 
-          {/* GLASS CARD */}
-          <div className="relative group w-[320px] h-[420px] rounded-[40px] border border-white/10 bg-white/5 backdrop-blur-2xl overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.4)]">
+  {/* GLASS CARD (tuned for better background separation) */}
+  <div className="relative group w-[380px] h-[480px] rounded-[50px] border border-white/10 bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-3xl overflow-hidden shadow-[0_25px_90px_rgba(0,0,0,0.55)]">
 
-            {/* TOP LIGHT */}
-            <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-white/10 to-transparent z-10" />
+    {/* TOP LIGHT */}
+    <div className="absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-white/15 to-transparent z-10" />
 
-            {/* IMAGE */}
-            <img
-              src={profileImg}
-              alt="Azizul"
-              className="
-                w-full
-                h-full
-                object-cover
-                scale-[1.02]
-                group-hover:scale-105
-                transition-transform
-                duration-700
-                brightness-105
-                contrast-110
-              "
-            />
+    {/* CIRCULAR IMAGE WRAPPER */}
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div className="w-[320px] h-[320px] rounded-full overflow-hidden border border-white/20 shadow-[0_0_60px_rgba(150,220,255,0.25)]">
 
-            {/* OVERLAY */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        <img
+          src={profileImg}
+          alt="Azizul"
+          className="
+            w-full
+            h-full
+            object-cover
+            scale-110
+            group-hover:scale-125
+            transition-transform
+            duration-700
+            brightness-110
+            contrast-110
+          "
+        />
 
-            {/* FLOATING INFO CARD */}
-            <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/10">
+      </div>
+    </div>
 
-              <p className="text-white font-semibold text-lg">
-                Azizul Islam
-              </p>
+    {/* OVERLAY (so it blends better with background) */}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-              <p className="text-white/60 text-sm mt-1">
-                Building modern web experiences & secure systems.
-              </p>
+    {/* FLOATING INFO CARD */}
+    <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/10">
 
-            </div>
+      <p className="text-white font-semibold text-lg">
+        Azizul Islam
+      </p>
 
-          </div>
+      <p className="text-white/60 text-sm mt-1">
+        Building modern web experiences & secure systems.
+      </p>
 
-        </div>
+    </div>
+
+  </div>
+
+</div>
 
       </div>
     </section>
