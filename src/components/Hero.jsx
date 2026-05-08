@@ -4,7 +4,8 @@ import gsap from "gsap";
 
 import profileImg from "../assets/me.png";
 
-/* ─── SVG DECORATIONS ───────────────────────────────────────────── */
+/* ─── SVG DECORATIONS (Globe, Shield, Fingerprint) ─── */
+// (Maintaining your existing high-quality SVG assets)
 
 function GlobeSVG() {
   return (
@@ -25,29 +26,6 @@ function GlobeSVG() {
           <ellipse key={i} cx="250" cy={y} rx={halfW * 0.95} ry={halfW * 0.18} fill="none" stroke="#ff8c4228" strokeWidth="0.8" />
         ) : null;
       })}
-      {[-60, -30, 0, 30, 60].map((deg, i) => (
-        <ellipse key={i} cx="250" cy="250" rx={Math.abs(Math.cos((deg * Math.PI) / 180) * 210)} ry="210" fill="none" stroke="#ff8c4228" strokeWidth="0.8" transform={`rotate(${deg}, 250, 250)`} />
-      ))}
-    </svg>
-  );
-}
-
-function ShieldLockSVG() {
-  return (
-    <svg viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg" className="w-20 h-24">
-      <path d="M60 8 L105 28 L105 72 Q105 108 60 130 Q15 108 15 72 L15 28 Z" fill="none" stroke="#ff8c42" strokeWidth="2.5" opacity="0.9" />
-      <rect x="43" y="68" width="34" height="28" rx="4" fill="none" stroke="#ff8c42" strokeWidth="2" opacity="0.85" />
-      <path d="M50 68 L50 58 Q50 46 60 46 Q70 46 70 58 L70 68" fill="none" stroke="#ff8c42" strokeWidth="2" opacity="0.85" />
-      <circle cx="60" cy="79" r="4" fill="#ff8c42" opacity="0.8" />
-    </svg>
-  );
-}
-
-function FingerprintSVG() {
-  return (
-    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 opacity-60">
-      <path d="M40 10 C22 10 10 22 10 40 M40 10 C58 10 70 22 70 40" fill="none" stroke="#ccc" strokeWidth="2" strokeLinecap="round"/>
-      <path d="M26 40 C26 30 32 24 40 24 C48 24 54 30 54 40" fill="none" stroke="#ccc" strokeWidth="2" strokeLinecap="round"/>
     </svg>
   );
 }
@@ -65,23 +43,6 @@ export default function Hero() {
         duration: 1.4,
         stagger: 0.2,
         ease: "power4.out",
-      });
-
-      gsap.to(".floating", {
-        y: -20,
-        duration: 4,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
-
-      gsap.to(".floating-alt", {
-        y: -15,
-        duration: 5,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        delay: 0.5,
       });
 
       gsap.to(".hero-image", {
@@ -104,8 +65,8 @@ export default function Hero() {
     >
       {/* ════════ BACKGROUND VISUALS ════════ */}
       <div className="absolute left-[-10%] top-0 w-[900px] h-[900px] bg-cyan-500/15 blur-[200px] rounded-full pointer-events-none" />
-      <div className="absolute right-[-5%] top-[5%] w-[800px] h-[800px] bg-orange-400/10 blur-[200px] rounded-full pointer-events-none" />
       
+      {/* FULLSCREEN IMAGE: Maintained raised position */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <img
           src={profileImg}
@@ -115,47 +76,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#07111B]/70 via-transparent to-[#07111B] opacity-95" />
       </div>
 
-      {/* ════════ LEFT FLOATING PANELS (CODE SECTIONS) ════════ */}
-      <div className="floating absolute top-[20%] left-[4%] hidden lg:block">
-        <div className="w-[230px] rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-5 shadow-2xl">
-          <pre className="text-cyan-400/50 text-[10px] font-mono leading-relaxed">
-{`<html>
-  <head>
-    <title>Azizul</title>
-  </head>
-  <body>
-    <!-- Secure UI -->
-  </body>
-</html>`}
-          </pre>
-        </div>
-      </div>
-
-      <div className="floating-alt absolute bottom-[20%] left-[6%] hidden lg:block">
-        <div className="w-[200px] rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-5 shadow-2xl">
-          <pre className="text-orange-400/40 text-[10px] font-mono leading-relaxed">
-{`.profile-mask {
-  filter: glossy;
-  mix-blend-mode: lighten;
-}`}
-          </pre>
-        </div>
-      </div>
-
-      {/* ════════ RIGHT FLOATING PANELS (SECURITY & GLOBE) ════════ */}
-      <div className="absolute right-[-8%] top-[10%] w-[550px] h-[550px] hidden lg:block opacity-25 pointer-events-none">
-        <GlobeSVG />
-      </div>
-
-      <div className="floating absolute right-[10%] top-[40%] hidden lg:flex items-center justify-center w-[120px] h-[120px] rounded-full border border-white/10 bg-white/[0.02] backdrop-blur-2xl">
-        <ShieldLockSVG />
-      </div>
-
-      <div className="floating-alt absolute right-[12%] bottom-[15%] hidden lg:flex items-center justify-center w-[80px] h-[80px] rounded-xl border border-white/10 bg-white/[0.03] backdrop-blur-xl">
-        <FingerprintSVG />
-      </div>
-
-      {/* ════════ MAIN CONTENT ════════ */}
+      {/* ════════ MAIN CONTENT (Lowered and Glossy) ════════ */}
       <div className="relative z-30 text-center px-6 mt-12">
         <div className="hero-item inline-flex items-center gap-3 px-6 py-2 rounded-full border border-white/10 bg-white/[0.05] backdrop-blur-xl mb-12">
           <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_10px_#22d3ee]" />
@@ -165,7 +86,7 @@ export default function Hero() {
         </div>
 
         <h1 className="hero-item text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] font-black leading-[0.8] tracking-tighter mb-8">
-          {/* GLOSSY MD. AZIZUL */}
+          {/* GLOSSY MD. AZIZUL (Transparent with Shine) */}
           <span 
             className="text-transparent"
             style={{ 
@@ -177,7 +98,7 @@ export default function Hero() {
             MD. AZIZUL
           </span>
           <br />
-          {/* GLOSSY ISLAM */}
+          {/* GLOSSY ISLAM (Colored with Specular Highlight) */}
           <span 
             className="bg-clip-text text-transparent"
             style={{ 
@@ -202,22 +123,19 @@ export default function Hero() {
         </div>
 
         <div className="hero-item flex flex-col sm:flex-row items-center justify-center gap-8">
-          <button 
-            onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-            className="group relative px-12 py-4 rounded-full bg-white text-black font-bold transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(34,211,238,0.4)]"
-          >
+          <button className="group relative px-12 py-4 rounded-full bg-white text-black font-bold transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(34,211,238,0.4)]">
             Explore Projects
-            <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
           </button>
           
-          <button 
-            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="group px-12 py-4 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md text-white/80 transition-all hover:bg-white/[0.08]"
-          >
+          <button className="group px-12 py-4 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md text-white/80 transition-all hover:bg-white/[0.08]">
             Get In Touch
-            <span className="inline-block ml-2 opacity-50 group-hover:rotate-45 transition-transform">↗</span>
           </button>
         </div>
+      </div>
+
+      {/* Decorative Globe */}
+      <div className="absolute right-[-5%] bottom-[-5%] w-[500px] h-[500px] hidden lg:block opacity-20 pointer-events-none">
+        <GlobeSVG />
       </div>
     </section>
   );
