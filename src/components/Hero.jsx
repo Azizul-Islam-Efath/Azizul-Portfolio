@@ -85,7 +85,6 @@ export default function Hero() {
         delay: 0.5,
       });
 
-      // Ambient zoom effect
       gsap.to(".hero-image", {
         scale: 1.1,
         duration: 15,
@@ -121,7 +120,7 @@ export default function Hero() {
             w-full
             h-full
             object-cover
-            object-[center_45%]  /* Raised even further to keep head/hands high */
+            object-[center_45%] 
             opacity-[0.45]
             mix-blend-lighten
             pointer-events-none
@@ -143,7 +142,7 @@ export default function Hero() {
     <title>Azizul</title>
   </head>
   <body>
-    <!-- Full-screen Layout -->
+    <!-- Transparent UI -->
   </body>
 </html>`}
           </pre>
@@ -153,9 +152,9 @@ export default function Hero() {
       <div className="floating-alt absolute bottom-[15%] left-[8%] hidden lg:block">
         <div className="w-[200px] rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-5 shadow-2xl">
           <pre className="text-orange-400/40 text-[10px] font-mono leading-relaxed">
-{`.profile-img {
-  object-position: center 45%;
-  z-index: -1;
+{`.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px;
 }`}
           </pre>
         </div>
@@ -183,8 +182,17 @@ export default function Hero() {
           </span>
         </div>
 
+        {/* --- TRANSPARENT TEXT SECTION --- */}
         <h1 className="hero-item text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] font-black leading-[0.8] tracking-tighter mb-6">
-          <span className="text-white/95">MD. AZIZUL</span>
+          <span 
+            className="text-transparent"
+            style={{ 
+              WebkitTextStroke: "1px rgba(255, 255, 255, 0.6)",
+              textStroke: "1px rgba(255, 255, 255, 0.6)" 
+            }}
+          >
+            MD. AZIZUL
+          </span>
           <br />
           <span 
             className="bg-clip-text text-transparent"
