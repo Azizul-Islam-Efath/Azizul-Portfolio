@@ -60,7 +60,6 @@ export default function Hero() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Entrance animations
       gsap.from(".hero-item", {
         opacity: 0,
         y: 40,
@@ -69,7 +68,6 @@ export default function Hero() {
         ease: "power4.out",
       });
 
-      // Floating animations
       gsap.to(".floating", {
         y: -20,
         duration: 4,
@@ -87,10 +85,9 @@ export default function Hero() {
         delay: 0.5,
       });
 
-      // Subtle scale effect on background image
       gsap.to(".hero-image", {
         scale: 1.05,
-        duration: 8,
+        duration: 10,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
@@ -108,11 +105,10 @@ export default function Hero() {
     >
       {/* ════════ BACKGROUND VISUALS ════════ */}
       
-      {/* Dynamic Glows */}
       <div className="absolute left-[-10%] top-0 w-[900px] h-[900px] bg-cyan-500/20 blur-[200px] rounded-full pointer-events-none" />
       <div className="absolute right-[-5%] top-[5%] w-[800px] h-[800px] bg-orange-400/10 blur-[200px] rounded-full pointer-events-none" />
 
-      {/* Fullscreen Optimized Image */}
+      {/* FULLSCREEN IMAGE: Focuses on Head-to-Hand region */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <img
           src={profileImg}
@@ -124,36 +120,29 @@ export default function Hero() {
             w-full
             h-full
             object-cover
-            object-bottom   /* CHANGED: Anchors image to bottom, cuts from the top */
-            opacity-[0.38]
+            object-[center_15%]  /* Precision focus: keeps head and torso in frame */
+            opacity-[0.4]
             mix-blend-lighten
             pointer-events-none
             select-none
           "
         />
         {/* Readability Masks */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#07111B] via-transparent to-[#07111B]/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#07111B] via-transparent to-transparent opacity-60" />
-      </div>
-
-      {/* Decorative Rings */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40">
-        <div className="w-[1400px] h-[1400px] rounded-full border border-white/[0.05]" />
-        <div className="absolute w-[1000px] h-[1000px] rounded-full border border-white/[0.05]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#07111B]/40 via-transparent to-[#07111B]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#07111B] via-transparent to-transparent opacity-50" />
       </div>
 
       {/* ════════ FLOATING DECOR ════════ */}
 
-      {/* Code Snippets */}
       <div className="floating absolute top-[20%] left-[5%] hidden lg:block">
-        <div className="w-[240px] rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-5 shadow-lg">
+        <div className="w-[240px] rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-5 shadow-2xl">
           <pre className="text-cyan-400/50 text-[10px] font-mono leading-relaxed">
 {`<html>
   <head>
     <title>Azizul</title>
   </head>
   <body>
-    <!-- Fullstack Dev -->
+    <!-- Focus: Head to Hand -->
   </body>
 </html>`}
           </pre>
@@ -161,18 +150,16 @@ export default function Hero() {
       </div>
 
       <div className="floating-alt absolute bottom-[15%] left-[8%] hidden lg:block">
-        <div className="w-[200px] rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-5 shadow-lg">
+        <div className="w-[200px] rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-5 shadow-2xl">
           <pre className="text-orange-400/40 text-[10px] font-mono leading-relaxed">
-{`.profile-mask {
-  object-fit: cover;
-  object-position: bottom;
-  z-index: 10;
+{`.profile-img {
+  object-position: 50% 15%;
+  transition: all 0.5s ease;
 }`}
           </pre>
         </div>
       </div>
 
-      {/* Cyber Security Elements */}
       <div className="absolute right-[-10%] top-[15%] w-[550px] h-[550px] hidden lg:block opacity-30 pointer-events-none">
         <GlobeSVG />
       </div>
@@ -188,7 +175,6 @@ export default function Hero() {
       {/* ════════ MAIN CONTENT ════════ */}
 
       <div className="relative z-30 text-center px-6">
-        {/* Status Badge */}
         <div className="hero-item inline-flex items-center gap-3 px-6 py-2 rounded-full border border-white/10 bg-white/[0.05] backdrop-blur-xl mb-10">
           <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_10px_#22d3ee]" />
           <span className="tracking-[0.3em] uppercase text-[10px] text-white/80 font-bold">
@@ -196,7 +182,6 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* Main Heading */}
         <h1 className="hero-item text-6xl sm:text-7xl md:text-8xl lg:text-[9rem] font-black leading-[0.85] tracking-tighter mb-6">
           <span className="text-white/90">MD. AZIZUL</span>
           <br />
@@ -208,7 +193,6 @@ export default function Hero() {
           </span>
         </h1>
 
-        {/* Dynamic Roles */}
         <div className="hero-item text-lg md:text-2xl text-white/50 font-light tracking-widest mb-12">
           <Typewriter
             words={[
@@ -220,11 +204,10 @@ export default function Hero() {
           />
         </div>
 
-        {/* Action Buttons */}
         <div className="hero-item flex flex-col sm:flex-row items-center justify-center gap-6">
           <button 
             onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-            className="group relative px-10 py-4 rounded-full bg-white text-black font-bold tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+            className="group relative px-10 py-4 rounded-full bg-white text-black font-bold tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(34,211,238,0.3)]"
           >
             Explore Projects
             <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
