@@ -108,7 +108,7 @@ export default function Hero() {
       <div className="absolute left-[-10%] top-0 w-[900px] h-[900px] bg-cyan-500/20 blur-[200px] rounded-full pointer-events-none" />
       <div className="absolute right-[-5%] top-[5%] w-[800px] h-[800px] bg-orange-400/10 blur-[200px] rounded-full pointer-events-none" />
 
-      {/* FULLSCREEN IMAGE: Raised focal point */}
+      {/* FULLSCREEN IMAGE: Optimized raised vertical alignment */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <img
           src={profileImg}
@@ -120,7 +120,8 @@ export default function Hero() {
             w-full
             h-full
             object-cover
-            object-[center_45%] 
+            /* 55% pushes the subject significantly higher into the frame */
+            object-[center_55%] 
             opacity-[0.45]
             mix-blend-lighten
             pointer-events-none
@@ -128,7 +129,7 @@ export default function Hero() {
           "
         />
         {/* Readability Masks */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#07111B]/50 via-transparent to-[#07111B] opacity-90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#07111B]/60 via-transparent to-[#07111B] opacity-95" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#07111B] via-transparent to-transparent opacity-40" />
       </div>
 
@@ -152,9 +153,9 @@ export default function Hero() {
       <div className="floating-alt absolute bottom-[15%] left-[8%] hidden lg:block">
         <div className="w-[200px] rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-5 shadow-2xl">
           <pre className="text-orange-400/40 text-[10px] font-mono leading-relaxed">
-{`.text-outline {
-  color: transparent;
-  -webkit-text-stroke: 1px;
+{`.profile-mask {
+  object-position: 55%;
+  mix-blend-mode: lighten;
 }`}
           </pre>
         </div>
@@ -182,7 +183,6 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* --- TRANSPARENT TEXT SECTION --- */}
         <h1 className="hero-item text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] font-black leading-[0.8] tracking-tighter mb-6">
           <span 
             className="text-transparent"
