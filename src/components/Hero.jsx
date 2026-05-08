@@ -231,11 +231,11 @@ export default function Hero() {
         <div className="hero-item inline-flex items-center gap-3 px-6 py-2 rounded-full border border-white/10 bg-white/[0.05] backdrop-blur-xl mb-12">
           <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_10px_#22d3ee]" />
           <span className="tracking-[0.4em] uppercase text-[10px] text-white/70 font-bold">
-            Software Engineering • Cyber Security
+            Ideate • Develop • Secure
           </span>
         </div>
 
-        <h1 className="hero-item text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] font-black leading-[0.8] tracking-tighter mb-8">
+        <h1 className="hero-item text-6xl sm:text-7xl md:text-8xl lg:text-[6.5rem] font-black leading-[0.8] tracking-tighter mb-8">
           <span 
             className="text-transparent"
             style={{ 
