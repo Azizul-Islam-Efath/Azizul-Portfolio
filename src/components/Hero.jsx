@@ -250,7 +250,7 @@ export default function Hero() {
           <span 
             className="bg-clip-text text-transparent"
             style={{ 
-              backgroundImage: "linear-gradient(180deg, #FFFFFF 0%, #7eb1f8ff 30%, #6393f2ff 50%, #5394e9ff 100%)",
+              backgroundImage: "linear-gradient(180deg, #FFFFFF 0%, #7eb1f8ff 30%, #90c0f0ff 50%, #7dc7eeff 100%)",
               WebkitBackgroundClip: "text",
               filter: "drop-shadow(0 10px 20px rgba(6,182,212,0.3))"
             }}
@@ -271,22 +271,24 @@ export default function Hero() {
         </div>
 
         <div className="hero-item flex flex-col sm:flex-row items-center justify-center gap-8">
-          <button 
-            onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-            className="group relative px-12 py-4 rounded-full bg-white text-black font-bold transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(34,211,238,0.4)]"
-          >
-            Explore Projects
-            <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
-          </button>
-          
-          <button 
-            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="group px-12 py-4 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md text-white/80 transition-all hover:bg-white/[0.08]"
-          >
-            Get In Touch
-            <span className="inline-block ml-2 opacity-50 group-hover:rotate-45 transition-transform">↗</span>
-          </button>
-        </div>
+  {/* Primary Button: Static Orange -> Hover Cyan */}
+  <button 
+    onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+    className="group relative px-12 py-4 rounded-full bg-[#ff8c42] text-[#07111B] font-bold transition-all duration-500 hover:bg-[#22d3ee] hover:scale-105 hover:shadow-[0_0_40px_rgba(34,211,238,0.6)]"
+  >
+    Explore Projects
+    <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+  </button>
+
+  {/* Secondary Button: Static Outline Orange -> Hover White Glass */}
+  <button 
+    onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+    className="group px-12 py-4 rounded-full border-2 border-[#ff8c42]/50 bg-[#ff8c42]/5 backdrop-blur-md text-[#ff8c42] transition-all duration-300 hover:border-white hover:text-white hover:bg-white/10"
+  >
+    Get In Touch
+    <span className="inline-block ml-2 opacity-50 group-hover:rotate-45 transition-transform">↗</span>
+  </button>
+</div>
       </div>
     </section>
   );
