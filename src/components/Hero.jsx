@@ -27,7 +27,7 @@ export default function Hero() {
 
       gsap.to(".profile-glow", {
         scale: 1.08,
-        duration: 3,
+        duration: 4,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
@@ -48,11 +48,44 @@ export default function Hero() {
 
       <div className="floating-orb absolute bottom-[15%] right-[10%] w-52 h-52 rounded-full bg-orange-200/10 blur-[120px]" />
 
-      {/* MAIN CONTAINER */}
-      <div className="relative z-10 max-w-7xl w-full grid lg:grid-cols-2 gap-16 items-center">
+      {/* CINEMATIC CENTER GLOW */}
+      <div
+        className="
+          absolute
+          inset-0
+          bg-[radial-gradient(circle_at_center,rgba(120,220,255,0.18),transparent_55%)]
+        "
+      />
 
-        {/* ================= LEFT SIDE ================= */}
-        <div className="text-center lg:text-left">
+      {/* ================= BACKGROUND IMAGE ================= */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+
+        {/* MAIN IMAGE */}
+        <img
+          src={profileImg}
+          alt="Azizul"
+          className="
+            profile-glow
+            w-[700px]
+            md:w-[850px]
+            lg:w-[950px]
+            xl:w-[1050px]
+            object-contain
+            opacity-40
+            scale-110
+            select-none
+          "
+        />
+
+        {/* DARK OVERLAY */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#07111a]/80 via-transparent to-[#07111a]/70" />
+
+      </div>
+
+      {/* ================= MAIN CONTENT ================= */}
+      <div className="relative z-10 max-w-7xl w-full flex items-center justify-center">
+
+        <div className="text-center max-w-5xl">
 
           {/* SMALL TAG */}
           <div className="hero-item inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-8">
@@ -65,21 +98,55 @@ export default function Hero() {
 
           </div>
 
-          {/* NAME */}
-          <h1 className="hero-item text-6xl sm:text-7xl md:text-8xl font-black leading-none tracking-tight text-white">
+          {/* MAIN TITLE */}
+          <h1
+            className="
+              hero-item
+              text-6xl
+              sm:text-7xl
+              md:text-8xl
+              lg:text-[9rem]
+              font-black
+              leading-none
+              tracking-tight
+              text-white/70
+              backdrop-blur-sm
+            "
+          >
 
             MD. AZIZUL
 
             <br />
 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#F3DDD0] to-[#9FE7F5]">
+            <span
+              className="
+                text-transparent
+                bg-clip-text
+                bg-gradient-to-r
+                from-white/80
+                via-[#F3DDD0]/70
+                to-[#9FE7F5]/70
+              "
+            >
               ISLAM
             </span>
 
           </h1>
 
           {/* TYPEWRITER */}
-          <p className="hero-item text-lg md:text-2xl text-white/70 mt-8 mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">
+          <p
+            className="
+              hero-item
+              text-lg
+              md:text-2xl
+              text-white/60
+              mt-8
+              mb-10
+              leading-relaxed
+              max-w-xl
+              mx-auto
+            "
+          >
 
             <Typewriter
               words={[
@@ -93,7 +160,7 @@ export default function Hero() {
           </p>
 
           {/* BUTTONS */}
-          <div className="hero-item flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
+          <div className="hero-item flex flex-col sm:flex-row gap-6 justify-center">
 
             {/* PRIMARY BUTTON */}
             <button
@@ -123,30 +190,34 @@ export default function Hero() {
             >
 
               {/* glow */}
-              <div className="
-                absolute
-                inset-0
-                opacity-0
-                group-hover:opacity-100
-                transition-opacity
-                duration-500
-                bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.8),transparent_70%)]
-              " />
+              <div
+                className="
+                  absolute
+                  inset-0
+                  opacity-0
+                  group-hover:opacity-100
+                  transition-opacity
+                  duration-500
+                  bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.8),transparent_70%)]
+                "
+              />
 
               {/* shine */}
-              <div className="
-                absolute
-                top-0
-                -left-[120%]
-                w-[60%]
-                h-full
-                rotate-12
-                bg-white/40
-                blur-xl
-                group-hover:left-[130%]
-                transition-all
-                duration-1000
-              " />
+              <div
+                className="
+                  absolute
+                  top-0
+                  -left-[120%]
+                  w-[60%]
+                  h-full
+                  rotate-12
+                  bg-white/40
+                  blur-xl
+                  group-hover:left-[130%]
+                  transition-all
+                  duration-1000
+                "
+              />
 
               <span className="relative z-10 flex items-center gap-3">
 
@@ -189,18 +260,20 @@ export default function Hero() {
             >
 
               {/* border glow */}
-              <div className="
-                absolute
-                inset-0
-                rounded-full
-                opacity-0
-                group-hover:opacity-100
-                transition-opacity
-                duration-500
-                border
-                border-cyan-200/40
-                shadow-[0_0_30px_rgba(150,220,255,0.25)]
-              " />
+              <div
+                className="
+                  absolute
+                  inset-0
+                  rounded-full
+                  opacity-0
+                  group-hover:opacity-100
+                  transition-opacity
+                  duration-500
+                  border
+                  border-cyan-200/40
+                  shadow-[0_0_30px_rgba(150,220,255,0.25)]
+                "
+              />
 
               <span className="relative z-10 flex items-center gap-3">
 
@@ -217,61 +290,6 @@ export default function Hero() {
           </div>
 
         </div>
-
-        {/* ================= RIGHT SIDE ================= */}
-<div className="hero-item relative flex justify-center lg:justify-end">
-
-  {/* OUTER GLOW (slightly stronger + better blend) */}
-  <div className="profile-glow absolute w-[500px] h-[500px] rounded-full bg-cyan-300/15 blur-[140px]" />
-
-  {/* GLASS CARD (tuned for better background separation) */}
-  <div className="relative group w-[380px] h-[480px] rounded-[50px] border border-white/10 bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-3xl overflow-hidden shadow-[0_25px_90px_rgba(0,0,0,0.55)]">
-
-    {/* TOP LIGHT */}
-    <div className="absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-white/15 to-transparent z-10" />
-
-    {/* CIRCULAR IMAGE WRAPPER */}
-    <div className="absolute inset-0 flex items-center justify-center">
-      <div className="w-[320px] h-[320px] rounded-full overflow-hidden border border-white/20 shadow-[0_0_60px_rgba(150,220,255,0.25)]">
-
-        <img
-          src={profileImg}
-          alt="Azizul"
-          className="
-            w-full
-            h-full
-            object-cover
-            scale-110
-            group-hover:scale-125
-            transition-transform
-            duration-700
-            brightness-110
-            contrast-110
-          "
-        />
-
-      </div>
-    </div>
-
-    {/* OVERLAY (so it blends better with background) */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-
-    {/* FLOATING INFO CARD */}
-    <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/10">
-
-      <p className="text-white font-semibold text-lg">
-        Azizul Islam
-      </p>
-
-      <p className="text-white/60 text-sm mt-1">
-        Building modern web experiences & secure systems.
-      </p>
-
-    </div>
-
-  </div>
-
-</div>
 
       </div>
     </section>
