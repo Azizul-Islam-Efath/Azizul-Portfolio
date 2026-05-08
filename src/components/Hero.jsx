@@ -4,73 +4,145 @@ import gsap from "gsap";
 
 import profileImg from "../assets/me.png";
 
-/* ─── SVG DECORATIONS ───────────────────────────────────────────── */
-
+/* ─── SVG: Digital Globe ─────────────────────────────────────────── */
 function GlobeSVG() {
   return (
-    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" className="w-full h-full globe-spin">
+    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
       <defs>
         <radialGradient id="globeGlow" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="#ff8c42" stopOpacity="0.35" />
           <stop offset="60%" stopColor="#ff6a00" stopOpacity="0.12" />
           <stop offset="100%" stopColor="#ff6a00" stopOpacity="0" />
         </radialGradient>
+        <radialGradient id="innerGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#ffb347" stopOpacity="0.2" />
+          <stop offset="100%" stopColor="transparent" stopOpacity="0" />
+        </radialGradient>
       </defs>
-
+ 
       {/* Glow background */}
       <circle cx="250" cy="250" r="230" fill="url(#globeGlow)" />
-
-      {/* Grid Rings */}
+ 
+      {/* Outer ring */}
       <circle cx="250" cy="250" r="210" fill="none" stroke="#ff8c4240" strokeWidth="1" />
+      <circle cx="250" cy="250" r="190" fill="none" stroke="#ff8c4220" strokeWidth="0.5" />
+ 
+      {/* Network lines - horizontal arcs */}
       {[0.15, 0.3, 0.5, 0.7, 0.85].map((t, i) => {
         const y = 60 + t * 380;
         const halfW = Math.sqrt(Math.max(0, 210 * 210 - (y - 250) * (y - 250)));
         return halfW > 0 ? (
-          <ellipse key={i} cx="250" cy={y} rx={halfW * 0.95} ry={halfW * 0.18} fill="none" stroke="#ff8c4228" strokeWidth="0.8" />
+          <ellipse
+            key={i}
+            cx="250" cy={y}
+            rx={halfW * 0.95} ry={halfW * 0.18}
+            fill="none"
+            stroke="#ff8c4228"
+            strokeWidth="0.8"
+          />
         ) : null;
       })}
+ 
+      {/* Meridian lines */}
       {[-60, -30, 0, 30, 60].map((deg, i) => (
-        <ellipse key={i} cx="250" cy="250" rx={Math.abs(Math.cos((deg * Math.PI) / 180) * 210)} ry="210" fill="none" stroke="#ff8c4228" strokeWidth="0.8" transform={`rotate(${deg}, 250, 250)`} />
+        <ellipse
+          key={i}
+          cx="250" cy="250"
+          rx={Math.abs(Math.cos((deg * Math.PI) / 180) * 210)}
+          ry="210"
+          fill="none"
+          stroke="#ff8c4228"
+          strokeWidth="0.8"
+          transform={`rotate(${deg}, 250, 250)`}
+        />
       ))}
-
-      {/* ── NETWORK EFFECT NODES ── */}
+ 
+      {/* Network dot nodes */}
       {[
         [250, 70], [370, 155], [420, 290], [350, 410], [150, 420],
         [80, 290], [130, 155], [310, 130], [390, 220], [390, 350],
-        [250, 430], [110, 350], [110, 210], [200, 100], [250, 250],
+        [250, 430], [110, 350], [110, 210], [200, 100], [300, 460],
+        [170, 200], [330, 200], [330, 310], [170, 310], [250, 250],
       ].map(([cx, cy], i) => (
         <circle key={i} cx={cx} cy={cy} r="3" fill="#ff8c42" opacity="0.7" />
       ))}
-
-      {/* ── NETWORK CONNECTING LINES ── */}
+ 
+      {/* Network connecting lines */}
       {[
         [250, 70, 310, 130], [310, 130, 370, 155], [370, 155, 420, 290],
-        [420, 290, 390, 350], [350, 410, 250, 430], [250, 430, 150, 420],
-        [110, 210, 130, 155], [250, 250, 370, 155], [250, 250, 110, 350],
-        [250, 70, 130, 155], [420, 290, 350, 410], [80, 290, 110, 350],
+        [420, 290, 390, 350], [390, 350, 350, 410], [350, 410, 250, 430],
+        [250, 430, 150, 420], [150, 420, 110, 350], [110, 350, 80, 290],
+        [80, 290, 110, 210], [110, 210, 130, 155], [130, 155, 200, 100],
+        [200, 100, 250, 70], [250, 70, 390, 220], [390, 220, 330, 310],
+        [330, 310, 250, 430], [170, 200, 330, 200], [170, 200, 170, 310],
+        [170, 310, 330, 310], [250, 70, 170, 200], [310, 130, 330, 200],
+        [390, 220, 330, 200], [420, 290, 330, 310], [110, 210, 170, 200],
+        [80, 290, 170, 310], [150, 420, 170, 310], [300, 460, 250, 430],
+        [300, 460, 350, 410], [250, 250, 170, 200], [250, 250, 330, 200],
+        [250, 250, 330, 310], [250, 250, 170, 310],
       ].map(([x1, y1, x2, y2], i) => (
         <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#ff8c4235" strokeWidth="0.8" />
       ))}
+ 
+      {/* Center inner glow */}
+      <circle cx="250" cy="250" r="90" fill="url(#innerGlow)" />
     </svg>
   );
 }
 
+/* ─── SVG: Shield Lock ───────────────────────────────────────────── */
 function ShieldLockSVG() {
   return (
     <svg viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg" className="w-20 h-24">
-      <path d="M60 8 L105 28 L105 72 Q105 108 60 130 Q15 108 15 72 L15 28 Z" fill="none" stroke="#ff8c42" strokeWidth="2.5" opacity="0.9" />
+      <defs>
+        <filter id="shieldGlow">
+          <feGaussianBlur stdDeviation="4" result="blur" />
+          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+      </defs>
+      {/* Shield shape */}
+      <path
+        d="M60 8 L105 28 L105 72 Q105 108 60 130 Q15 108 15 72 L15 28 Z"
+        fill="none"
+        stroke="#ff8c42"
+        strokeWidth="2.5"
+        filter="url(#shieldGlow)"
+        opacity="0.9"
+      />
+      <path
+        d="M60 8 L105 28 L105 72 Q105 108 60 130 Q15 108 15 72 L15 28 Z"
+        fill="rgba(255,140,66,0.07)"
+      />
+      {/* Lock body */}
       <rect x="43" y="68" width="34" height="28" rx="4" fill="none" stroke="#ff8c42" strokeWidth="2" opacity="0.85" />
-      <path d="M50 68 L50 58 Q50 46 60 46 Q70 46 70 58 L70 68" fill="none" stroke="#ff8c42" strokeWidth="2" opacity="0.85" />
+      {/* Lock shackle */}
+      <path
+        d="M50 68 L50 58 Q50 46 60 46 Q70 46 70 58 L70 68"
+        fill="none"
+        stroke="#ff8c42"
+        strokeWidth="2"
+        strokeLinecap="round"
+        opacity="0.85"
+      />
+      {/* Keyhole */}
       <circle cx="60" cy="79" r="4" fill="#ff8c42" opacity="0.8" />
+      <rect x="58" y="79" width="4" height="8" rx="1" fill="#ff8c42" opacity="0.8" />
     </svg>
   );
 }
-
+ 
+/* ─── SVG: Fingerprint ───────────────────────────────────────────── */
 function FingerprintSVG() {
   return (
     <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 opacity-60">
-      <path d="M40 10 C22 10 10 22 10 40 M40 10 C58 10 70 22 70 40" fill="none" stroke="#ccc" strokeWidth="2" strokeLinecap="round"/>
-      <path d="M26 40 C26 30 32 24 40 24 C48 24 54 30 54 40" fill="none" stroke="#ccc" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M40 10 C22 10 10 22 10 40" fill="none" stroke="#ccc" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M40 10 C58 10 70 22 70 40" fill="none" stroke="#ccc" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M20 36 C20 24 29 16 40 16 C51 16 60 24 60 36" fill="none" stroke="#ccc" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M26 40 C26 30 32 24 40 24 C48 24 54 30 54 40 C54 50 48 58 40 64" fill="none" stroke="#ccc" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M32 40 C32 34 35 30 40 30 C45 30 48 34 48 40 C48 46 45 52 40 58" fill="none" stroke="#ccc" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M38 40 C38 38 39 36 40 36 C41 36 42 38 42 40 C42 44 41 48 40 52" fill="none" stroke="#ccc" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M14 46 C14 44 14 42 14 40" fill="none" stroke="#ccc" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M66 40 C66 48 64 56 60 62" fill="none" stroke="#ccc" strokeWidth="2" strokeLinecap="round"/>
     </svg>
   );
 }
