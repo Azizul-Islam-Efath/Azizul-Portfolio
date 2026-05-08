@@ -250,7 +250,7 @@ export default function Hero() {
           <span 
             className="bg-clip-text text-transparent"
             style={{ 
-              backgroundImage: "linear-gradient(180deg, #FFFFFF 0%, #7eb1f8ff 30%, #2066f1ff 50%, #065fd4ff 100%)",
+              backgroundImage: "linear-gradient(180deg, #FFFFFF 0%, #7eb1f8ff 30%, #6393f2ff 50%, #5394e9ff 100%)",
               WebkitBackgroundClip: "text",
               filter: "drop-shadow(0 10px 20px rgba(6,182,212,0.3))"
             }}
