@@ -247,16 +247,27 @@ export default function Hero() {
             MD. AZIZUL
           </span>
           <br />
-          <span 
-            className="bg-clip-text text-transparent"
-            style={{ 
-              backgroundImage: "linear-gradient(180deg, #FFFFFF 0%, #7eb1f8ff 30%, #90c0f0ff 50%, #7dc7eeff 100%)",
-              WebkitBackgroundClip: "text",
-              filter: "drop-shadow(0 10px 20px rgba(6,182,212,0.3))"
-            }}
-          >
-            ISLAM
-          </span>
+<span 
+  className="text-transparent"
+  style={{ 
+    // This creates the thin, sharp Cyan outline
+    WebkitTextStroke: "1px #22d3ee", 
+    textStroke: "1px #22d3ee",
+    
+    // This adds a very slight Cyan tint to the "glass" inside the letters
+    backgroundColor: "rgba(34, 211, 238, 0.05)",
+    WebkitBackgroundClip: "text",
+    backgroundClip: "text",
+    
+    // The glow effect
+    filter: "drop-shadow(0 0 15px rgba(34, 211, 238, 0.4))",
+    
+    // Smooth transition if you decide to add hover effects later
+    transition: "all 0.5s ease"
+  }}
+>
+  ISLAM
+</span>
         </h1>
 
         <div className="hero-item text-lg md:text-2xl text-white/40 font-light tracking-[0.2em] mb-14">
