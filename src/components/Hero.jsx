@@ -235,7 +235,7 @@ export default function Hero() {
           </span>
         </div>
 
-        <h1 className="hero-item text-6xl sm:text-7xl md:text-8xl lg:text-[6.5rem] font-black leading-[0.8] tracking-tighter mb-8">
+        <h1 className="hero-item text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-black leading-[0.8] tracking-tighter mb-8">
           <span 
             className="text-transparent"
             style={{ 
@@ -250,7 +250,7 @@ export default function Hero() {
           <span 
             className="bg-clip-text text-transparent"
             style={{ 
-              backgroundImage: "linear-gradient(180deg, #FFFFFF 0%, #7ee8f8 30%, #22d3ee 50%, #06b6d4 100%)",
+              backgroundImage: "linear-gradient(180deg, #FFFFFF 0%, #7eb1f8ff 30%, #2066f1ff 50%, #065fd4ff 100%)",
               WebkitBackgroundClip: "text",
               filter: "drop-shadow(0 10px 20px rgba(6,182,212,0.3))"
             }}
