@@ -18,7 +18,7 @@ export default function Hero() {
       });
 
       gsap.to(".floating", {
-        y: -15,
+        y: -20,
         duration: 4,
         repeat: -1,
         yoyo: true,
@@ -27,7 +27,7 @@ export default function Hero() {
 
       gsap.to(".hero-image", {
         scale: 1.03,
-        duration: 6,
+        duration: 5,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
@@ -52,15 +52,18 @@ export default function Hero() {
     >
       {/* ================= BACKGROUND GLOWS ================= */}
 
-      <div className="absolute left-[-10%] top-[-10%] w-[900px] h-[900px] bg-cyan-500/25 blur-[180px] rounded-full" />
+      {/* LEFT BLUE GLOW */}
+      <div className="absolute left-[-10%] top-0 w-[900px] h-[900px] bg-cyan-500/30 blur-[180px] rounded-full" />
 
-      <div className="absolute right-[-10%] top-[0%] w-[900px] h-[900px] bg-orange-200/20 blur-[180px] rounded-full" />
+      {/* RIGHT PEACH GLOW */}
+      <div className="absolute right-[-10%] top-[10%] w-[900px] h-[900px] bg-orange-200/20 blur-[180px] rounded-full" />
 
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06),transparent_60%)]" />
+      {/* CENTER LIGHT */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_55%)]" />
 
-      {/* ================= HERO IMAGE ================= */}
+      {/* ================= FULLSCREEN HERO IMAGE ================= */}
 
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
 
         {/* IMAGE */}
         <img
@@ -70,59 +73,62 @@ export default function Hero() {
             hero-image
             absolute
             left-1/2
-            top-[52%]
+            top-1/2
             -translate-x-1/2
             -translate-y-1/2
-            w-[900px]
-            md:w-[1050px]
-            lg:w-[1150px]
-            xl:w-[1250px]
-            object-contain
-            opacity-[0.38]
-            brightness-[0.85]
-            contrast-[1.05]
-            saturate-[1.05]
+            w-[1200px]
+            md:w-[1400px]
+            lg:w-[1600px]
+            xl:w-[1800px]
+            max-w-none
+            object-cover
+            opacity-[0.23]
+            mix-blend-lighten
             pointer-events-none
             select-none
           "
         />
 
-        {/* LEFT DARK OVERLAY */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#07111B]/92 via-[#07111B]/45 to-transparent" />
+        {/* LEFT DARK GRADIENT */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#07111B]/90 via-[#07111B]/35 to-transparent" />
 
-        {/* RIGHT ORANGE LIGHT */}
+        {/* RIGHT PEACH LIGHT */}
         <div className="absolute inset-0 bg-gradient-to-l from-[#ffdcc2]/20 via-transparent to-transparent" />
+
+        {/* CENTER SOFT LIGHT */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_60%)]" />
 
       </div>
 
-      {/* ================= MAIN RINGS ================= */}
+      {/* ================= DECOR CIRCLES ================= */}
 
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
 
-        <div className="w-[1500px] h-[1500px] rounded-full border border-white/10" />
+        <div className="w-[1400px] h-[1400px] rounded-full border border-white/10" />
 
-        <div className="absolute w-[1100px] h-[1100px] rounded-full border border-white/10" />
+        <div className="absolute w-[950px] h-[950px] rounded-full border border-white/10" />
 
       </div>
 
-      {/* ================= LEFT CODE PANELS ================= */}
+      {/* ================= FLOATING UI ELEMENTS ================= */}
 
-      {/* HTML PANEL */}
-      <div className="floating absolute top-[15%] left-[3%] hidden lg:block">
+      {/* CODE BOX */}
+      <div className="floating absolute top-[16%] left-[3%] hidden lg:block">
 
-        <div className="w-[260px] rounded-[30px] border border-cyan-300/20 bg-[#071824]/60 backdrop-blur-3xl p-7 shadow-[0_0_60px_rgba(0,255,255,0.08)]">
+        <div className="w-[280px] rounded-3xl border border-cyan-200/10 bg-white/[0.03] backdrop-blur-2xl p-6 shadow-[0_0_40px_rgba(0,255,255,0.05)]">
 
-          <pre className="text-cyan-200/70 text-[15px] leading-9 whitespace-pre-wrap font-mono">
+          <pre className="text-cyan-200/50 text-sm leading-8 whitespace-pre-wrap">
 {`<html>
-
 <head>
-<title>Azizul
-Portfolio</title>
+<title>Azizul Portfolio</title>
 </head>
 
 <body>
+  <div class="hero">
+    <h1>Building Secure
+    & Scalable Web</h1>
+  </div>
 </body>
-
 </html>`}
           </pre>
 
@@ -130,15 +136,13 @@ Portfolio</title>
 
       </div>
 
-      {/* CSS PANEL */}
-      <div className="floating absolute top-[44%] left-[3%] hidden lg:block">
+      {/* CSS BOX */}
+      <div className="floating absolute bottom-[24%] left-[4%] hidden lg:block">
 
-        <div className="w-[260px] rounded-[30px] border border-cyan-300/20 bg-[#071824]/60 backdrop-blur-3xl p-7 shadow-[0_0_60px_rgba(0,255,255,0.06)]">
+        <div className="w-[240px] rounded-3xl border border-cyan-200/10 bg-white/[0.03] backdrop-blur-2xl p-6">
 
-          <pre className="text-cyan-100/60 text-[15px] leading-9 whitespace-pre-wrap font-mono">
-{`CSS
-
-.hero {
+          <pre className="text-cyan-100/40 text-sm leading-7 whitespace-pre-wrap">
+{`.hero {
  min-height: 100vh;
  display: flex;
  align-items: center;
@@ -150,95 +154,66 @@ Portfolio</title>
 
       </div>
 
-      {/* TERMINAL PANEL */}
-      <div className="floating absolute bottom-[5%] left-[3%] hidden lg:block">
+      {/* TERMINAL */}
+      <div className="floating absolute bottom-[8%] left-[3%] hidden lg:block">
 
-        <div className="w-[300px] rounded-[30px] border border-cyan-300/20 bg-[#071824]/60 backdrop-blur-3xl p-7 shadow-[0_0_60px_rgba(0,255,255,0.06)]">
+        <div className="w-[260px] rounded-3xl border border-cyan-200/10 bg-white/[0.03] backdrop-blur-2xl p-5">
 
-          <pre className="text-cyan-100/50 text-[14px] leading-8 whitespace-pre-wrap font-mono">
+          <pre className="text-cyan-100/40 text-xs leading-7 whitespace-pre-wrap">
 {`$ npm run dev
 
 > my-portfolio@1.0.0 dev
 > vite
 
-✓ Local:
-localhost:5173
-
-✓ Network:
-use --host to expose`}
+✓ Local: localhost:5173`}
           </pre>
 
         </div>
 
       </div>
 
-      {/* ================= FLOATING ICONS ================= */}
-
-      {/* </> */}
-      <div className="floating absolute top-[26%] left-[26%] hidden lg:flex items-center justify-center w-20 h-20 rounded-[24px] border border-cyan-300/20 bg-white/[0.04] backdrop-blur-2xl text-4xl text-white/80 shadow-[0_0_40px_rgba(255,255,255,0.08)]">
+      {/* FLOATING ICON */}
+      <div className="floating absolute top-[28%] left-[30%] hidden lg:flex items-center justify-center w-20 h-20 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl text-4xl text-white/70">
         {"</>"}
       </div>
 
-      {/* {} */}
-      <div className="floating absolute bottom-[28%] left-[24%] hidden lg:flex items-center justify-center w-20 h-20 rounded-[24px] border border-cyan-300/20 bg-white/[0.04] backdrop-blur-2xl text-4xl text-white/80 shadow-[0_0_40px_rgba(255,255,255,0.08)]">
+      {/* FLOATING ICON */}
+      <div className="floating absolute bottom-[18%] left-[26%] hidden lg:flex items-center justify-center w-20 h-20 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl text-4xl text-white/70">
         {"{}"}
       </div>
 
-      {/* 🌐 */}
-      <div className="floating absolute bottom-[10%] left-[25%] hidden lg:flex items-center justify-center w-20 h-20 rounded-[24px] border border-cyan-300/20 bg-white/[0.04] backdrop-blur-2xl text-4xl text-white/80 shadow-[0_0_40px_rgba(255,255,255,0.08)]">
+      {/* FLOATING ICON */}
+      <div className="floating absolute bottom-[10%] left-[20%] hidden lg:flex items-center justify-center w-20 h-20 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl text-4xl text-white/70">
         🌐
       </div>
 
-      {/* ================= RIGHT SIDE ================= */}
+      {/* RIGHT SECURITY GLOBE */}
+      <div className="absolute right-[-8%] top-[28%] w-[650px] h-[650px] rounded-full border border-orange-100/10 opacity-60">
+
+        <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(255,220,180,0.18),transparent_70%)]" />
+
+      </div>
+
+      {/* LOCK ICON */}
+      <div className="floating absolute right-[13%] top-[48%] hidden lg:flex items-center justify-center w-40 h-40 rounded-full border border-orange-100/10 bg-white/[0.03] backdrop-blur-xl">
+
+        <div className="text-7xl opacity-80">
+          🔒
+        </div>
+
+      </div>
 
       {/* ACCESS */}
-      <div className="floating absolute right-[10%] top-[30%] hidden lg:block">
+      <div className="floating absolute right-[12%] top-[32%] hidden lg:block">
 
-        <div className="px-7 py-4 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl text-white/80 text-lg shadow-[0_0_40px_rgba(255,255,255,0.06)]">
-          🟢 ACCESS GRANTED
+        <div className="px-6 py-4 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl text-white/70">
+          ● ACCESS GRANTED
         </div>
 
-      </div>
-
-      {/* SECURITY GLOBE */}
-      <div className="absolute right-[-8%] top-[35%] hidden lg:block">
-
-        <div className="relative w-[650px] h-[650px] rounded-full border border-orange-100/10">
-
-          {/* glow */}
-          <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(255,210,170,0.18),transparent_70%)]" />
-
-          {/* dots */}
-          <div className="absolute inset-0 rounded-full border border-dashed border-orange-100/10 animate-spin [animation-duration:30s]" />
-
-          {/* shield */}
-          <div className="absolute inset-0 flex items-center justify-center">
-
-            <div className="relative">
-
-              {/* shield glow */}
-              <div className="absolute inset-0 blur-[60px] bg-orange-200/30 rounded-full scale-150" />
-
-              {/* shield */}
-              <div className="relative text-[140px] drop-shadow-[0_0_40px_rgba(255,220,180,0.8)]">
-                🛡️
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      {/* FINGERPRINT */}
-      <div className="floating absolute bottom-[10%] right-[18%] hidden lg:flex items-center justify-center w-24 h-24 rounded-[26px] border border-orange-100/10 bg-white/[0.04] backdrop-blur-2xl text-5xl shadow-[0_0_40px_rgba(255,255,255,0.06)]">
-        🌀
       </div>
 
       {/* BINARY */}
-      <div className="absolute right-[4%] top-[10%] hidden lg:block text-white/25 text-sm tracking-[0.35em] leading-9">
+      <div className="absolute right-[5%] top-[10%] hidden lg:block text-white/20 text-sm tracking-[0.3em] leading-8">
 
         01001 10110 11101
         <br />
@@ -247,8 +222,6 @@ use --host to expose`}
         11101 01001 10110
         <br />
         01001 10110 11101
-        <br />
-        10110 11101 01001
 
       </div>
 
@@ -256,14 +229,14 @@ use --host to expose`}
 
       <div className="relative z-20 w-full min-h-screen flex items-center justify-center px-6">
 
-        <div className="text-center max-w-6xl">
+        <div className="text-center max-w-5xl">
 
-          {/* TOP TAG */}
-          <div className="hero-item inline-flex items-center gap-3 px-8 py-4 rounded-full border border-cyan-100/10 bg-white/[0.04] backdrop-blur-2xl mb-10 shadow-[0_0_40px_rgba(255,255,255,0.04)]">
+          {/* TAG */}
+          <div className="hero-item inline-flex items-center gap-3 px-6 py-3 rounded-full border border-cyan-100/10 bg-white/[0.04] backdrop-blur-xl mb-8">
 
             <div className="w-2 h-2 rounded-full bg-cyan-300 animate-pulse" />
 
-            <span className="tracking-[0.30em] uppercase text-sm text-[#F3DDD0]">
+            <span className="tracking-[0.28em] uppercase text-sm text-[#F3DDD0]">
               Cyber Security • Web Developer
             </span>
 
@@ -277,12 +250,11 @@ use --host to expose`}
               sm:text-7xl
               md:text-8xl
               lg:text-[8rem]
-              xl:text-[9rem]
               font-black
-              leading-[0.88]
+              leading-[0.9]
               tracking-tight
-              text-white/95
-              drop-shadow-[0_0_35px_rgba(255,255,255,0.12)]
+              text-white/90
+              drop-shadow-[0_0_30px_rgba(255,255,255,0.15)]
             "
           >
 
@@ -290,7 +262,7 @@ use --host to expose`}
 
             <br />
 
-            <span className="text-white/92">
+            <span className="text-white/85">
               ISLAM
             </span>
 
@@ -313,7 +285,7 @@ use --host to expose`}
           {/* BUTTONS */}
           <div className="hero-item mt-14 flex flex-col sm:flex-row items-center justify-center gap-6">
 
-            {/* PRIMARY */}
+            {/* PRIMARY BUTTON */}
             <button
               onClick={() =>
                 document
@@ -322,7 +294,7 @@ use --host to expose`}
               }
               className="
                 group
-                px-12
+                px-10
                 py-5
                 rounded-full
                 bg-[#F3DDD0]
@@ -332,7 +304,7 @@ use --host to expose`}
                 transition-all
                 duration-500
                 hover:scale-105
-                hover:shadow-[0_0_50px_rgba(255,255,255,0.2)]
+                hover:shadow-[0_0_50px_rgba(255,255,255,0.25)]
               "
             >
 
@@ -348,7 +320,7 @@ use --host to expose`}
 
             </button>
 
-            {/* SECONDARY */}
+            {/* SECONDARY BUTTON */}
             <button
               onClick={() =>
                 document
@@ -357,18 +329,18 @@ use --host to expose`}
               }
               className="
                 group
-                px-12
+                px-10
                 py-5
                 rounded-full
                 border
                 border-white/20
-                bg-white/[0.04]
+                bg-white/[0.03]
                 backdrop-blur-2xl
                 text-white
                 text-lg
                 transition-all
                 duration-500
-                hover:bg-white/[0.08]
+                hover:bg-white/[0.06]
                 hover:scale-105
               "
             >
