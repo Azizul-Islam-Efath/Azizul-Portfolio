@@ -11,23 +11,23 @@ export default function Hero() {
     const ctx = gsap.context(() => {
       gsap.from(".hero-item", {
         opacity: 0,
-        y: 60,
+        y: 40,
         duration: 1.2,
-        ease: "power4.out",
         stagger: 0.12,
+        ease: "power4.out",
       });
 
       gsap.to(".floating-orb", {
-        y: -30,
+        y: -25,
         duration: 4,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
       });
 
-      gsap.to(".profile-glow", {
-        scale: 1.08,
-        duration: 4,
+      gsap.to(".hero-image", {
+        scale: 1.03,
+        duration: 5,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
@@ -41,64 +41,126 @@ export default function Hero() {
     <section
       ref={ref}
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden px-6"
+      className="relative min-h-screen overflow-hidden bg-[#07111A]"
     >
-      {/* FLOATING LIGHTS */}
-      <div className="floating-orb absolute top-[20%] left-[10%] w-40 h-40 rounded-full bg-cyan-300/10 blur-[100px]" />
 
-      <div className="floating-orb absolute bottom-[15%] right-[10%] w-52 h-52 rounded-full bg-orange-200/10 blur-[120px]" />
+      {/* ================= NAVBAR SPACE ================= */}
+      <div className="absolute inset-0">
 
-      {/* CINEMATIC CENTER GLOW */}
-      <div
-        className="
-          absolute
-          inset-0
-          bg-[radial-gradient(circle_at_center,rgba(120,220,255,0.18),transparent_55%)]
-        "
-      />
-
-      {/* ================= BACKGROUND IMAGE ================= */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-
-        {/* MAIN IMAGE */}
+        {/* BACKGROUND IMAGE */}
         <img
           src={profileImg}
           alt="Azizul"
           className="
-            profile-glow
+            hero-image
+            absolute
+            left-1/2
+            top-1/2
+            -translate-x-1/2
+            -translate-y-1/2
             w-[700px]
             md:w-[850px]
             lg:w-[950px]
             xl:w-[1050px]
-            object-contain
-            opacity-40
-            scale-110
-            select-none
+            object-cover
+            opacity-35
+            blur-[1px]
           "
         />
 
         {/* DARK OVERLAY */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#07111a]/80 via-transparent to-[#07111a]/70" />
+        <div className="absolute inset-0 bg-[#07111A]/45" />
+
+        {/* LEFT BLUE GLOW */}
+        <div className="floating-orb absolute left-[-10%] top-[15%] w-[500px] h-[500px] rounded-full bg-cyan-400/20 blur-[120px]" />
+
+        {/* RIGHT ORANGE GLOW */}
+        <div className="floating-orb absolute right-[-10%] bottom-[10%] w-[500px] h-[500px] rounded-full bg-orange-200/20 blur-[140px]" />
+
+        {/* CENTER LIGHT */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_60%)]" />
+
+      </div>
+
+      {/* ================= DECORATIONS ================= */}
+
+      {/* BIG CIRCLE */}
+      <div className="absolute left-1/2 top-1/2 w-[900px] h-[900px] border border-white/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
+
+      <div className="absolute left-1/2 top-1/2 w-[650px] h-[650px] border border-white/5 rounded-full -translate-x-1/2 -translate-y-1/2" />
+
+      {/* CODE CARD */}
+      <div className="hidden lg:block absolute top-[18%] left-[3%] border border-cyan-300/10 bg-white/5 backdrop-blur-xl rounded-3xl p-6 text-cyan-200/40 text-sm leading-8">
+
+        {"<html>"} <br />
+        {"<head>"} <br />
+        {"<title>Azizul Portfolio</title>"} <br />
+        {"</head>"} <br />
+        {"<body>"} <br />
+        {"<div class='hero'>"} <br />
+        {"<h1>Building Secure"} <br />
+        {"& Scalable Web</h1>"} <br />
+        {"</div>"} <br />
+        {"</body>"} <br />
+        {"</html>"}
+
+      </div>
+
+      {/* CSS CARD */}
+      <div className="hidden lg:block absolute bottom-[22%] left-[3%] border border-cyan-300/10 bg-white/5 backdrop-blur-xl rounded-3xl p-6 text-cyan-200/40 text-sm leading-8">
+
+        .hero {"{"} <br />
+        &nbsp;&nbsp;min-height: 100vh; <br />
+        &nbsp;&nbsp;display: flex; <br />
+        &nbsp;&nbsp;align-items: center; <br />
+        &nbsp;&nbsp;justify-content: center; <br />
+        {"}"}
+
+      </div>
+
+      {/* ACCESS */}
+      <div className="hidden lg:flex absolute top-[35%] right-[8%] px-6 py-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl text-white/70 items-center gap-3">
+
+        <div className="w-3 h-3 rounded-full bg-white/70" />
+
+        ACCESS GRANTED
+
+      </div>
+
+      {/* FINGERPRINT */}
+      <div className="hidden lg:flex absolute bottom-[15%] right-[20%] w-24 h-24 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl items-center justify-center text-5xl text-white/60">
+
+        ⌘
+
+      </div>
+
+      {/* BINARY */}
+      <div className="hidden lg:block absolute top-[10%] right-[5%] text-white/30 text-sm leading-10 tracking-[0.2em]">
+
+        01001 10110 11101 <br />
+        10110 11101 01001 <br />
+        11101 01001 10110 <br />
+        01001 10110 11101
 
       </div>
 
       {/* ================= MAIN CONTENT ================= */}
-      <div className="relative z-10 max-w-7xl w-full flex items-center justify-center">
+      <div className="relative z-10 min-h-screen flex items-center justify-center px-6">
 
         <div className="text-center max-w-5xl">
 
-          {/* SMALL TAG */}
-          <div className="hero-item inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-8">
+          {/* TAG */}
+          <div className="hero-item inline-flex items-center gap-3 px-6 py-3 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-10">
 
             <div className="w-2 h-2 rounded-full bg-cyan-300 animate-pulse" />
 
-            <span className="text-xs tracking-[0.25em] uppercase text-[#F3DDD0]">
+            <span className="text-sm tracking-[0.25em] uppercase text-[#F3DDD0]">
               Cyber Security • Web Developer
             </span>
 
           </div>
 
-          {/* MAIN TITLE */}
+          {/* TITLE */}
           <h1
             className="
               hero-item
@@ -109,8 +171,7 @@ export default function Hero() {
               font-black
               leading-none
               tracking-tight
-              text-white/70
-              backdrop-blur-sm
+              text-white/80
             "
           >
 
@@ -118,35 +179,14 @@ export default function Hero() {
 
             <br />
 
-            <span
-              className="
-                text-transparent
-                bg-clip-text
-                bg-gradient-to-r
-                from-white/80
-                via-[#F3DDD0]/70
-                to-[#9FE7F5]/70
-              "
-            >
+            <span className="text-white/85">
               ISLAM
             </span>
 
           </h1>
 
           {/* TYPEWRITER */}
-          <p
-            className="
-              hero-item
-              text-lg
-              md:text-2xl
-              text-white/60
-              mt-8
-              mb-10
-              leading-relaxed
-              max-w-xl
-              mx-auto
-            "
-          >
+          <p className="hero-item text-xl md:text-3xl text-white/60 mt-8 mb-12">
 
             <Typewriter
               words={[
@@ -162,7 +202,7 @@ export default function Hero() {
           {/* BUTTONS */}
           <div className="hero-item flex flex-col sm:flex-row gap-6 justify-center">
 
-            {/* PRIMARY BUTTON */}
+            {/* PRIMARY */}
             <button
               onClick={() =>
                 document
@@ -170,68 +210,23 @@ export default function Hero() {
                   ?.scrollIntoView({ behavior: "smooth" })
               }
               className="
-                group
-                relative
-                overflow-hidden
                 px-10
-                py-4
+                py-5
                 rounded-full
-                bg-gradient-to-r
-                from-[#F3DDD0]
-                to-[#E8C7B6]
+                bg-[#F3DDD0]
                 text-black
                 font-semibold
-                tracking-wide
+                text-lg
                 transition-all
                 duration-500
                 hover:scale-105
-                hover:shadow-[0_0_50px_rgba(255,255,255,0.35)]
+                hover:shadow-[0_0_40px_rgba(255,255,255,0.25)]
               "
             >
-
-              {/* glow */}
-              <div
-                className="
-                  absolute
-                  inset-0
-                  opacity-0
-                  group-hover:opacity-100
-                  transition-opacity
-                  duration-500
-                  bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.8),transparent_70%)]
-                "
-              />
-
-              {/* shine */}
-              <div
-                className="
-                  absolute
-                  top-0
-                  -left-[120%]
-                  w-[60%]
-                  h-full
-                  rotate-12
-                  bg-white/40
-                  blur-xl
-                  group-hover:left-[130%]
-                  transition-all
-                  duration-1000
-                "
-              />
-
-              <span className="relative z-10 flex items-center gap-3">
-
-                View Projects
-
-                <span className="group-hover:translate-x-1 transition-transform">
-                  →
-                </span>
-
-              </span>
-
+              View Projects →
             </button>
 
-            {/* SECONDARY BUTTON */}
+            {/* SECONDARY */}
             <button
               onClick={() =>
                 document
@@ -239,52 +234,22 @@ export default function Hero() {
                   ?.scrollIntoView({ behavior: "smooth" })
               }
               className="
-                group
-                relative
-                overflow-hidden
                 px-10
-                py-4
+                py-5
                 rounded-full
                 border
                 border-white/15
                 bg-white/5
-                backdrop-blur-2xl
+                backdrop-blur-xl
                 text-white
-                font-medium
+                text-lg
                 transition-all
                 duration-500
                 hover:bg-white/10
-                hover:border-white/30
                 hover:scale-105
               "
             >
-
-              {/* border glow */}
-              <div
-                className="
-                  absolute
-                  inset-0
-                  rounded-full
-                  opacity-0
-                  group-hover:opacity-100
-                  transition-opacity
-                  duration-500
-                  border
-                  border-cyan-200/40
-                  shadow-[0_0_30px_rgba(150,220,255,0.25)]
-                "
-              />
-
-              <span className="relative z-10 flex items-center gap-3">
-
-                Contact Me
-
-                <span className="group-hover:translate-x-1 transition-transform">
-                  ↗
-                </span>
-
-              </span>
-
+              Contact Me ↗
             </button>
 
           </div>
@@ -292,6 +257,7 @@ export default function Hero() {
         </div>
 
       </div>
+
     </section>
   );
 }
