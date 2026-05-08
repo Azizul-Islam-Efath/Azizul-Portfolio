@@ -85,10 +85,10 @@ export default function Hero() {
         delay: 0.5,
       });
 
-      // Subtle zoom for depth
+      // Ambient zoom effect
       gsap.to(".hero-image", {
-        scale: 1.08,
-        duration: 12,
+        scale: 1.1,
+        duration: 15,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
@@ -109,7 +109,7 @@ export default function Hero() {
       <div className="absolute left-[-10%] top-0 w-[900px] h-[900px] bg-cyan-500/20 blur-[200px] rounded-full pointer-events-none" />
       <div className="absolute right-[-5%] top-[5%] w-[800px] h-[800px] bg-orange-400/10 blur-[200px] rounded-full pointer-events-none" />
 
-      {/* FULLSCREEN IMAGE: Optimized vertical alignment */}
+      {/* FULLSCREEN IMAGE: Raised focal point */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <img
           src={profileImg}
@@ -121,16 +121,15 @@ export default function Hero() {
             w-full
             h-full
             object-cover
-            /* 35% pushes the image content 'up' to ensure face/hands are centered-top */
-            object-[center_35%] 
-            opacity-[0.42]
+            object-[center_45%]  /* Raised even further to keep head/hands high */
+            opacity-[0.45]
             mix-blend-lighten
             pointer-events-none
             select-none
           "
         />
-        {/* Readability Masks: Ensuring text pops against the image */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#07111B]/60 via-transparent to-[#07111B]" />
+        {/* Readability Masks */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#07111B]/50 via-transparent to-[#07111B] opacity-90" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#07111B] via-transparent to-transparent opacity-40" />
       </div>
 
@@ -154,9 +153,9 @@ export default function Hero() {
       <div className="floating-alt absolute bottom-[15%] left-[8%] hidden lg:block">
         <div className="w-[200px] rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-5 shadow-2xl">
           <pre className="text-orange-400/40 text-[10px] font-mono leading-relaxed">
-{`.hero-img {
-  object-fit: cover;
-  object-position: center 35%;
+{`.profile-img {
+  object-position: center 45%;
+  z-index: -1;
 }`}
           </pre>
         </div>
@@ -184,7 +183,7 @@ export default function Hero() {
           </span>
         </div>
 
-        <h1 className="hero-item text-6xl sm:text-7xl md:text-8xl lg:text-[9.2rem] font-black leading-[0.82] tracking-tighter mb-6">
+        <h1 className="hero-item text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] font-black leading-[0.8] tracking-tighter mb-6">
           <span className="text-white/95">MD. AZIZUL</span>
           <br />
           <span 
