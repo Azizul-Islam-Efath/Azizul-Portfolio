@@ -124,16 +124,16 @@ export default function Hero() {
             w-full
             h-full
             object-cover
-            object-top
-            opacity-[0.35]
+            object-bottom   /* CHANGED: Anchors image to bottom, cuts from the top */
+            opacity-[0.38]
             mix-blend-lighten
             pointer-events-none
             select-none
           "
         />
         {/* Readability Masks */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#07111B]/20 via-transparent to-[#07111B]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#07111B] via-transparent to-[#07111B]/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#07111B] via-transparent to-[#07111B]/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#07111B] via-transparent to-transparent opacity-60" />
       </div>
 
       {/* Decorative Rings */}
@@ -146,14 +146,14 @@ export default function Hero() {
 
       {/* Code Snippets */}
       <div className="floating absolute top-[20%] left-[5%] hidden lg:block">
-        <div className="w-[240px] rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-5">
+        <div className="w-[240px] rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-5 shadow-lg">
           <pre className="text-cyan-400/50 text-[10px] font-mono leading-relaxed">
 {`<html>
   <head>
     <title>Azizul</title>
   </head>
   <body>
-    <!-- Content -->
+    <!-- Fullstack Dev -->
   </body>
 </html>`}
           </pre>
@@ -161,12 +161,12 @@ export default function Hero() {
       </div>
 
       <div className="floating-alt absolute bottom-[15%] left-[8%] hidden lg:block">
-        <div className="w-[200px] rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-5">
+        <div className="w-[200px] rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-5 shadow-lg">
           <pre className="text-orange-400/40 text-[10px] font-mono leading-relaxed">
-{`.dev-profile {
-  position: absolute;
-  filter: blur(0);
-  z-index: 100;
+{`.profile-mask {
+  object-fit: cover;
+  object-position: bottom;
+  z-index: 10;
 }`}
           </pre>
         </div>
@@ -224,7 +224,7 @@ export default function Hero() {
         <div className="hero-item flex flex-col sm:flex-row items-center justify-center gap-6">
           <button 
             onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-            className="group relative px-10 py-4 rounded-full bg-white text-black font-bold tracking-wide transition-all duration-300 hover:scale-105 hover:bg-cyan-50"
+            className="group relative px-10 py-4 rounded-full bg-white text-black font-bold tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]"
           >
             Explore Projects
             <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
