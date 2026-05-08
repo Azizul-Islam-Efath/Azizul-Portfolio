@@ -91,33 +91,128 @@ export default function Hero() {
           </p>
 
           {/* BUTTONS */}
-          <div className="hero-item flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
+<div className="hero-item flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
 
-            <button
-              onClick={() =>
-                document
-                  .getElementById("projects")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="group relative overflow-hidden px-10 py-4 rounded-full bg-[#E8C7B6] text-black font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(255,255,255,0.25)]"
-            >
-              <span className="relative z-10">View Projects</span>
+  {/* PRIMARY BUTTON */}
+  <button
+    onClick={() =>
+      document
+        .getElementById("projects")
+        ?.scrollIntoView({ behavior: "smooth" })
+    }
+    className="
+      group
+      relative
+      overflow-hidden
+      px-10
+      py-4
+      rounded-full
+      bg-gradient-to-r
+      from-[#F3DDD0]
+      to-[#E8C7B6]
+      text-black
+      font-semibold
+      tracking-wide
+      transition-all
+      duration-500
+      hover:scale-105
+      hover:shadow-[0_0_50px_rgba(255,255,255,0.35)]
+    "
+  >
 
-              <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </button>
+    {/* glow */}
+    <div className="
+      absolute
+      inset-0
+      opacity-0
+      group-hover:opacity-100
+      transition-opacity
+      duration-500
+      bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.8),transparent_70%)]
+    " />
 
-            <button
-              onClick={() =>
-                document
-                  .getElementById("contact")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="px-10 py-4 rounded-full border border-white/15 bg-white/5 backdrop-blur-xl text-white hover:bg-white/10 transition-all duration-300"
-            >
-              Contact Me
-            </button>
+    {/* shine animation */}
+    <div className="
+      absolute
+      top-0
+      -left-[120%]
+      w-[60%]
+      h-full
+      rotate-12
+      bg-white/40
+      blur-xl
+      group-hover:left-[130%]
+      transition-all
+      duration-1000
+    " />
 
-          </div>
+    <span className="relative z-10 flex items-center gap-3">
+
+      View Projects
+
+      <span className="group-hover:translate-x-1 transition-transform">
+        →
+      </span>
+
+    </span>
+
+  </button>
+
+  {/* SECONDARY BUTTON */}
+  <button
+    onClick={() =>
+      document
+        .getElementById("contact")
+        ?.scrollIntoView({ behavior: "smooth" })
+    }
+    className="
+      group
+      relative
+      overflow-hidden
+      px-10
+      py-4
+      rounded-full
+      border
+      border-white/15
+      bg-white/5
+      backdrop-blur-2xl
+      text-white
+      font-medium
+      transition-all
+      duration-500
+      hover:bg-white/10
+      hover:border-white/30
+      hover:scale-105
+    "
+  >
+
+    {/* border glow */}
+    <div className="
+      absolute
+      inset-0
+      rounded-full
+      opacity-0
+      group-hover:opacity-100
+      transition-opacity
+      duration-500
+      border
+      border-cyan-200/40
+      shadow-[0_0_30px_rgba(150,220,255,0.25)]
+    " />
+
+    <span className="relative z-10 flex items-center gap-3">
+
+      Contact Me
+
+      <span className="group-hover:translate-x-1 transition-transform">
+        ↗
+      </span>
+
+    </span>
+
+  </button>
+
+</div>
 
         </div>
 
