@@ -32,27 +32,99 @@ export default function Navbar({ active }) {
       }}
       className="fixed top-0 left-0 right-0 z-50 px-6 md:px-16 py-5 flex items-center justify-between transition-all duration-500"
     >
-      <span className="font-black text-2xl tracking-tight text-white">
-        AZ<span className="text-[#E8C7B6]">.</span>
-      </span>
 
+      {/* LOGO */}
+      <div className="relative group cursor-pointer select-none">
+
+        {/* PURPLE GLOW */}
+        <div className="absolute inset-0 blur-2xl opacity-70 bg-purple-500/20 rounded-full animate-pulse" />
+
+        {/* LOGO TEXT */}
+        <span
+          className="
+            relative
+            font-black
+            text-3xl
+            tracking-tight
+            uppercase
+            text-transparent
+            bg-clip-text
+            bg-gradient-to-b
+            from-purple-300
+            via-fuchsia-400
+            to-violet-700
+            drop-shadow-[0_0_18px_rgba(168,85,247,0.9)]
+            animate-logoDrip
+          "
+        >
+          AZ
+          <span className="text-fuchsia-300">.</span>
+        </span>
+
+      </div>
+
+      {/* DESKTOP NAV */}
       <ul className="hidden md:flex gap-10">
-        {NAV_LINKS.map((link) => (
-          <li key={link}>
-            <button
-              onClick={() => scrollTo(link)}
-              className={`text-sm tracking-wide transition-all duration-300 ${
-                active === link.toLowerCase()
-                  ? "text-white"
-                  : "text-white/70 hover:text-white"
-              }`}
-            >
-              {link}
-            </button>
-          </li>
-        ))}
+
+        {NAV_LINKS.map((link) => {
+          const isActive = active === link.toLowerCase();
+
+          return (
+            <li key={link} className="relative">
+
+              <button
+                onClick={() => scrollTo(link)}
+                className={`
+                  relative
+                  text-sm
+                  tracking-wide
+                  transition-all
+                  duration-300
+                  ${
+                    isActive
+                      ? "text-white"
+                      : "text-white/70 hover:text-white"
+                  }
+                `}
+              >
+                {link}
+
+                {/* ACTIVE UNDERLINE */}
+                <span
+                  className={`
+                    absolute
+                    left-0
+                    -bottom-2
+                    h-[2px]
+                    rounded-full
+                    transition-all
+                    duration-500
+                    ${
+                      isActive
+                        ? `
+                          w-full
+                          bg-gradient-to-r
+                          from-orange-300
+                          via-orange-400
+                          to-orange-500
+                          shadow-[0_0_12px_rgba(255,165,0,0.9)]
+                        `
+                        : `
+                          w-0
+                        `
+                    }
+                  `}
+                />
+
+              </button>
+
+            </li>
+          );
+        })}
+
       </ul>
 
+      {/* MOBILE MENU BUTTON */}
       <button
         className="md:hidden text-white flex flex-col gap-1.5"
         onClick={() => setOpen(!open)}
@@ -62,19 +134,34 @@ export default function Navbar({ active }) {
         <span className="block w-6 h-0.5 bg-white" />
       </button>
 
+      {/* MOBILE MENU */}
       {open && (
         <div className="absolute top-full left-0 right-0 backdrop-blur-xl bg-white/10 border-b border-white/10 flex flex-col py-4">
+
           {NAV_LINKS.map((link) => (
             <button
               key={link}
               onClick={() => scrollTo(link)}
-              className="px-8 py-3 text-left text-white/80 hover:text-white"
+              className={`
+                px-8
+                py-3
+                text-left
+                transition-all
+                duration-300
+                ${
+                  active === link.toLowerCase()
+                    ? "text-orange-300"
+                    : "text-white/80 hover:text-white"
+                }
+              `}
             >
               {link}
             </button>
           ))}
+
         </div>
       )}
+
     </nav>
   );
 }
