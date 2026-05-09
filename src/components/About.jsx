@@ -40,13 +40,24 @@ function AboutBackground() {
       aria-hidden="true"
       style={{
         position: "absolute",
-        inset: 0,
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
         overflow: "hidden",
         zIndex: 0,
         pointerEvents: "none",
       }}
     >
-      {/* Base dark navy */}
+      {/* Solid base — fully opaque, kills any bleed-through from parent */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: "#0a0e1a",
+        }}
+      />
+      {/* Gradient overlay */}
       <div
         style={{
           position: "absolute",
@@ -148,7 +159,12 @@ export default function About() {
   return (
     <section
       id="about"
-      style={{ position: "relative", overflow: "hidden" }}
+      style={{
+        position: "relative",
+        minHeight: "100vh",
+        isolation: "isolate",
+        width: "100%",
+      }}
       className="py-20 px-6 md:px-16"
     >
       {/* Background layer */}
