@@ -235,40 +235,37 @@ export default function Hero() {
           </span>
         </div>
 
-        <h1 className="hero-item text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-black leading-[0.8] tracking-tighter mb-8">
-          <span 
-            className="text-transparent"
-            style={{ 
-              WebkitTextStroke: "1px rgba(255, 255, 255, 0.5)",
-              textStroke: "1px rgba(255, 255, 255, 0.5)",
-              filter: "drop-shadow(0 0 15px rgba(255,255,255,0.1))"
-            }}
-          >
-            MD. AZIZUL
-          </span>
-          <br />
-<span 
-  className="text-transparent"
-  style={{ 
-    // This creates the thin, sharp Cyan outline
-    WebkitTextStroke: "1px #22d3ee", 
-    textStroke: "1px #22d3ee",
-    
-    // This adds a very slight Cyan tint to the "glass" inside the letters
-    backgroundColor: "rgba(34, 211, 238, 0.05)",
-    WebkitBackgroundClip: "text",
-    backgroundClip: "text",
-    
-    // The glow effect
-    filter: "drop-shadow(0 0 15px rgba(34, 211, 238, 0.4))",
-    
-    // Smooth transition if you decide to add hover effects later
-    transition: "all 0.5s ease"
-  }}
->
-  ISLAM
-</span>
-        </h1>
+<h1 className="hero-item text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] font-black leading-[0.85] tracking-tighter mb-8 translate-y-4">
+  
+  <span 
+    className="text-transparent"
+    style={{ 
+      WebkitTextStroke: "1px rgba(255, 255, 255, 0.5)",
+      textStroke: "1px rgba(255, 255, 255, 0.5)",
+      filter: "drop-shadow(0 0 15px rgba(255,255,255,0.1))"
+    }}
+  >
+    MD. AZIZUL
+  </span>
+
+  <br />
+
+  <span 
+    className="text-transparent"
+    style={{ 
+      WebkitTextStroke: "1px #22d3ee", 
+      textStroke: "1px #22d3ee",
+      backgroundColor: "rgba(34, 211, 238, 0.05)",
+      WebkitBackgroundClip: "text",
+      backgroundClip: "text",
+      filter: "drop-shadow(0 0 15px rgba(34, 211, 238, 0.4))",
+      transition: "all 0.5s ease"
+    }}
+  >
+    ISLAM
+  </span>
+
+</h1>
 
         <div className="hero-item text-lg md:text-2xl text-white/40 font-light tracking-[0.2em] mb-14">
           <Typewriter
