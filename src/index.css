@@ -5,19 +5,31 @@ html {
 }
 
 body {
-  background: #080c18;
+  background: #0f1720;
   color: white;
   overflow-x: hidden;
   font-family: "Outfit", sans-serif;
 }
 
-/* premium noise overlay */
+/* Ambient cinematic glow */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(31,151,180,0.25), transparent 35%),
+    radial-gradient(circle at 80% 70%, rgba(232,199,182,0.2), transparent 40%);
+  z-index: -2;
+  filter: blur(90px);
+}
+
+/* premium noise */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-  opacity: 0.03;
+  opacity: 0.04;
   pointer-events: none;
   z-index: -1;
 }
@@ -27,7 +39,7 @@ body::after {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c0580a;
+  background: #E8C7B6;
   border-radius: 999px;
 }
 
@@ -38,23 +50,28 @@ body::after {
 @keyframes logoDrip {
   0% {
     transform: translateY(0px) scaleY(1);
-    filter: drop-shadow(0 0 8px rgba(192,88,10,0.8));
+    filter: drop-shadow(0 0 8px rgba(168,85,247,0.8));
   }
+
   20% {
     transform: translateY(2px) scaleY(1.05);
   }
+
   40% {
     transform: translateY(6px) scaleY(0.92);
   }
+
   60% {
     transform: translateY(2px) scaleY(1.03);
   }
+
   80% {
     transform: translateY(4px) scaleY(0.96);
   }
+
   100% {
     transform: translateY(0px) scaleY(1);
-    filter: drop-shadow(0 0 18px rgba(212,112,10,1));
+    filter: drop-shadow(0 0 18px rgba(192,132,252,1));
   }
 }
 
