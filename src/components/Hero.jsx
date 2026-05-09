@@ -243,7 +243,7 @@ export default function Hero() {
   <span 
     className="text-transparent"
     style={{ 
-      WebkitTextStroke: "1px rgba(167, 22, 22, 0.5)",
+      WebkitTextStroke: "1px rgba(232, 161, 161, 0.5)",
       textStroke: "1px rgba(231, 9, 9, 0.5)",
       filter: "drop-shadow(0 0 15px rgba(255,255,255,0.1))"
     }}
