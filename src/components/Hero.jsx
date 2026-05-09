@@ -243,9 +243,9 @@ export default function Hero() {
   <span 
     className="text-transparent"
     style={{ 
-      WebkitTextStroke: "1px rgba(230, 92, 7, 0.5)",
-      textStroke: "1px rgba(225, 151, 151, 0.5)",
-      filter: "drop-shadow(0 0 15px rgba(235, 6, 6, 0.25))"
+      WebkitTextStroke: "1px rgba(255, 98, 0, 0.85)",
+      textStroke: "1px rgba(219, 23, 23, 0.5)",
+      filter: "drop-shadow(0 0 15px rgba(232, 182, 182, 0.25))"
     }}
   >
     MD. AZIZUL
