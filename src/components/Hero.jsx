@@ -228,12 +228,15 @@ export default function Hero() {
 
       {/* ════════ MAIN CONTENT ════════ */}
       <div className="relative z-30 text-center px-6 mt-12">
-        <div className="hero-item inline-flex items-center gap-3 px-6 py-2 rounded-full border border-white/10 bg-white/[0.05] backdrop-blur-xl mb-12">
-          <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_10px_#22d3ee]" />
-          <span className="tracking-[0.4em] uppercase text-[10px] text-white/70 font-bold">
-            Ideate • Develop • Secure
-          </span>
-        </div>
+        <div className="hero-item inline-flex items-center gap-3 px-6 py-2 rounded-full border border-white/10 bg-white/[0.05] backdrop-blur-xl mb-12 translate-y-4">
+  
+  <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_10px_#22d3ee]" />
+  
+  <span className="tracking-[0.4em] uppercase text-[10px] text-white/70 font-bold">
+    Ideate • Develop • Secure
+  </span>
+
+</div>
 
 <h1 className="hero-item text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] font-black leading-[0.85] tracking-tighter mb-8 translate-y-4">
   
