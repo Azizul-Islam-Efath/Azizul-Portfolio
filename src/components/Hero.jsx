@@ -245,7 +245,7 @@ export default function Hero() {
     style={{ 
       WebkitTextStroke: "1px rgba(135, 1, 1, 0.5)",
       textStroke: "1px rgba(225, 151, 151, 0.5)",
-      filter: "drop-shadow(0 0 15px rgba(255,255,255,0.1))"
+      filter: "drop-shadow(0 0 15px rgba(235, 6, 6, 0.25))"
     }}
   >
     MD. AZIZUL
