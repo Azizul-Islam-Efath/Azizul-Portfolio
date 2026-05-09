@@ -1,3 +1,4 @@
+// About.jsx — background is handled by GlobalBackground in App.jsx
 import { Reveal, useInView } from "../utils";
 
 const SKILLS = [
