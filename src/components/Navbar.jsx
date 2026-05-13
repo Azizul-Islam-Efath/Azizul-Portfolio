@@ -34,7 +34,7 @@ export default function Navbar({ active }) {
         }
         .blood-drop {
           position: absolute;
-          background: #8b0000;
+          background: #f17508ff;
           border-radius: 50%;
           filter: blur(1px);
           animation: blood-fall infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
