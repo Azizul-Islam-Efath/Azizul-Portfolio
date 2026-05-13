@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-// Updated section names based on your requirement
+// The section names you requested
 const NAV_LINKS = ["Home", "About", "Projects", "Experience", "Contact"];
 
 export default function Navbar({ active }) {
@@ -14,7 +14,6 @@ export default function Navbar({ active }) {
   }, []);
 
   const scrollTo = (id) => {
-    // Handling special case for Experience to match your section IDs if needed
     const targetId = id === "Experience" ? "experience" : id.toLowerCase();
     const element = document.getElementById(targetId);
     if (element) element.scrollIntoView({ behavior: "smooth" });
@@ -23,13 +22,9 @@ export default function Navbar({ active }) {
 
   return (
     <nav
-      style={{
-        background: scrolled ? "rgba(0,0,0,0.4)" : "transparent",
-        backdropFilter: scrolled ? "blur(20px)" : "none",
-      }}
-      className="fixed top-0 left-0 right-0 z-50 px-6 md:px-16 py-5 flex items-center justify-between transition-all duration-500"
+      className="fixed top-0 left-0 right-0 z-50 px-6 md:px-16 py-6 flex items-center justify-between transition-all duration-500 bg-transparent"
     >
-      {/* KEPT: YOUR ORIGINAL ANIMATION & FILTER DEFINITIONS */}
+      {/* YOUR ORIGINAL LOGO EFFECTS */}
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes blood-fall {
           0%   { transform: translateY(0) scale(1);   opacity: 0;   }
@@ -58,9 +53,9 @@ export default function Navbar({ active }) {
         </filter>
       </svg>
 
-      {/* KEPT: YOUR ORIGINAL LOGO SECTION */}
+      {/* LEFT: YOUR ORIGINAL LOGO */}
       <div className="flex-1">
-        <div className="relative group cursor-pointer select-none w-fit">
+        <div className="relative group cursor-pointer select-none w-fit px-4 py-2 rounded-2xl transition-all duration-300 hover:bg-white/5 hover:backdrop-blur-md border border-transparent hover:border-white/10">
           <div className="absolute inset-0 blur-[60px] opacity-30 bg-red-700 rounded-full animate-pulse pointer-events-none" />
           <div className="relative flex items-center">
             <span
@@ -78,9 +73,11 @@ export default function Navbar({ active }) {
         </div>
       </div>
 
-      {/* FIXED: GLASSMORPHIC CENTER NAV PILL */}
+      {/* CENTER: GLOSSY PILL NAV */}
       <div className="hidden md:block">
-        <ul className="flex items-center gap-1 px-2 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl">
+        <ul className={`flex items-center gap-1 px-2 py-2 rounded-full border border-white/10 transition-all duration-500 shadow-2xl ${
+          scrolled ? "bg-black/40 backdrop-blur-2xl border-white/20" : "bg-white/5 backdrop-blur-lg"
+        }`}>
           {NAV_LINKS.map((link) => {
             const isActive = active === (link === "Experience" ? "experience" : link.toLowerCase());
             return (
@@ -101,9 +98,11 @@ export default function Navbar({ active }) {
         </ul>
       </div>
 
-      {/* RIGHT SECTION: CTA BUTTON */}
+      {/* RIGHT: CTA BUTTON */}
       <div className="flex-1 flex justify-end">
-        <button className="hidden md:block group relative px-8 py-2.5 rounded-full overflow-hidden border border-red-900/30">
+        <button className={`hidden md:block group relative px-8 py-2.5 rounded-full overflow-hidden border border-red-900/30 transition-all duration-500 ${
+          scrolled ? "backdrop-blur-md" : ""
+        }`}>
           <div className="absolute inset-0 bg-red-950/40 group-hover:bg-red-600 transition-colors duration-300" />
           <span className="relative z-10 text-white text-[10px] font-bold uppercase tracking-widest">
             Start a project
@@ -111,7 +110,7 @@ export default function Navbar({ active }) {
         </button>
 
         {/* MOBILE TOGGLE */}
-        <button className="md:hidden text-white" onClick={() => setOpen(!open)}>
+        <button className="md:hidden text-white bg-white/5 p-3 rounded-xl backdrop-blur-md border border-white/10" onClick={() => setOpen(!open)}>
           <div className="flex flex-col gap-1.5 w-6">
             <span className={`h-0.5 bg-red-600 transition-all ${open ? "rotate-45 translate-y-2" : ""}`} />
             <span className={`h-0.5 bg-white ${open ? "opacity-0" : ""}`} />
@@ -121,15 +120,15 @@ export default function Navbar({ active }) {
       </div>
 
       {/* MOBILE MENU OVERLAY */}
-      <div className={`fixed inset-0 bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center gap-8 transition-all duration-500 z-[55] ${
+      <div className={`fixed inset-0 bg-black/95 backdrop-blur-3xl flex flex-col items-center justify-center gap-8 transition-all duration-500 z-[55] ${
         open ? "opacity-100 visible" : "opacity-0 invisible"
       }`}>
         {NAV_LINKS.map((link) => (
           <button
             key={link}
             onClick={() => scrollTo(link)}
-            className={`text-2xl font-black uppercase tracking-widest ${
-              active === link.toLowerCase() ? "text-red-600" : "text-white/60"
+            className={`text-2xl font-black uppercase tracking-widest transition-colors ${
+              active === (link === "Experience" ? "experience" : link.toLowerCase()) ? "text-red-600" : "text-white/60 hover:text-white"
             }`}
           >
             {link}
