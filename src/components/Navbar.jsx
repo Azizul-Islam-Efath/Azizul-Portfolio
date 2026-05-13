@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-// Updated links based on your requirement
 const NAV_LINKS = ["Home", "About", "Projects", "Experience", "Contact"];
 
 export default function Navbar({ active }) {
@@ -52,7 +51,7 @@ export default function Navbar({ active }) {
         </filter>
       </svg>
 
-      {/* LEFT: LOGO */}
+      {/* LEFT: LOGO SECTION */}
       <div className="flex-1">
         <div className="relative group cursor-pointer select-none w-fit">
           <div className="absolute inset-0 blur-[60px] opacity-20 bg-red-700 rounded-full animate-pulse pointer-events-none" />
@@ -73,10 +72,10 @@ export default function Navbar({ active }) {
 
       {/* CENTER: ULTRA-TRANSPARENT WATER PILL */}
       <div className="hidden md:block">
-        <ul className={`flex items-center gap-1 px-1 py-1.5 rounded-full border border-white/5 transition-all duration-700 ${
+        <ul className={`flex items-center gap-1 px-1 py-1.5 rounded-full border transition-all duration-700 ${
           scrolled 
-          ? "bg-white/[0.02] backdrop-blur-[40px] shadow-[0_4px_30px_rgba(0,0,0,0.05)] border-white/10" 
-          : "bg-transparent backdrop-blur-sm"
+          ? "bg-white/[0.01] backdrop-blur-[50px] shadow-[0_4px_30px_rgba(0,0,0,0.05)] border-white/10" 
+          : "bg-transparent backdrop-blur-sm border-white/5"
         }`}>
           {NAV_LINKS.map((link) => {
             const isActive = active === link.toLowerCase();
@@ -98,16 +97,16 @@ export default function Navbar({ active }) {
         </ul>
       </div>
 
-      {/* RIGHT: CTA BUTTON (Orange Hover & Contact Scroll) */}
+      {/* RIGHT: ORANGE RGB GLOSS BUTTON (Links to Contact) */}
       <div className="flex-1 flex justify-end">
         <button 
           onClick={() => scrollTo('contact')}
-          className="hidden md:block group relative px-8 py-2.5 rounded-full overflow-hidden border border-white/5 bg-white/[0.03] backdrop-blur-xl transition-all duration-500 hover:border-orange-500/50 hover:shadow-[0_0_20px_rgba(249,115,22,0.2)]"
+          className="hidden md:block group relative px-8 py-2.5 rounded-full overflow-hidden border border-orange-500/40 bg-orange-500/[0.03] backdrop-blur-2xl transition-all duration-500 shadow-[0_0_15px_rgba(249,115,22,0.1)] hover:shadow-[0_0_25px_rgba(249,115,22,0.4)] hover:border-orange-500"
         >
-          {/* Subtle Orange Glow on Hover */}
-          <div className="absolute inset-0 bg-orange-600 opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+          {/* Internal Orange Glow */}
+          <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 to-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           
-          <span className="relative z-10 text-white group-hover:text-orange-400 text-[10px] font-black uppercase tracking-widest transition-colors duration-300">
+          <span className="relative z-10 text-orange-500 group-hover:text-white text-[10px] font-black uppercase tracking-widest transition-colors duration-300">
             Start a project
           </span>
         </button>
@@ -123,7 +122,7 @@ export default function Navbar({ active }) {
       </div>
 
       {/* MOBILE OVERLAY */}
-      <div className={`fixed inset-0 bg-black/70 backdrop-blur-[50px] flex flex-col items-center justify-center gap-10 transition-all duration-700 z-[55] ${
+      <div className={`fixed inset-0 bg-black/70 backdrop-blur-[80px] flex flex-col items-center justify-center gap-10 transition-all duration-700 z-[55] ${
         open ? "opacity-100 visible" : "opacity-0 invisible"
       }`}>
         {NAV_LINKS.map((link) => (
