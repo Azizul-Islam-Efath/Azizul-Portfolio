@@ -258,7 +258,7 @@ export default function ProjectBackground() {
       const chipX = w * 0.72;
       const chipY = h * 0.48;
       const feedYs = [-0.1, -0.07, -0.04, -0.01, 0.02, 0.05, 0.08, 0.11];
-      feedYs.forEach((dy, i) => {
+      feedYs.forEach((dy) => {
         ctx.beginPath();
         const startX = chipX - w * 0.12;
         ctx.moveTo(startX, chipY + h * dy);
@@ -268,7 +268,7 @@ export default function ProjectBackground() {
 
       // horizontal feeds to chip from right
       const rightFeedYs = [-0.1, -0.07, -0.04, -0.01, 0.02, 0.05, 0.08, 0.11];
-      rightFeedYs.forEach((dy, i) => {
+      rightFeedYs.forEach((dy) => {
         ctx.beginPath();
         ctx.moveTo(chipX + w * 0.055, chipY + h * dy);
         ctx.lineTo(chipX + w * 0.25, chipY + h * dy);
@@ -672,7 +672,7 @@ export default function ProjectBackground() {
     }
 
     // Animated data dots flowing along traces
-    function drawTraceFlows(t) {
+    function drawTraceFlows() {
       ctx.save();
       traceFlows.forEach((f) => {
         f.progress += f.speed;
@@ -720,7 +720,7 @@ export default function ProjectBackground() {
       drawSecurityIcons(t);
       drawChip(t);
       drawParticles();
-      drawTraceFlows(t);
+      drawTraceFlows();
 
       ctx.restore();
 
