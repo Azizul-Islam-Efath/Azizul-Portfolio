@@ -1,109 +1,118 @@
+
+import { motion } from 'framer-motion';
+
 /**
  * Azizul Islam's Cybernetic Project Background
- * Designed for Vite/React environments.
+ * Fixed JSX Parsing Error for <motion.g>
  */
 export default function ProjectBackground() {
   return (
-    <div className="fixed inset-0 -z-50 overflow-hidden bg-[#0c101b]">
-      {/* ── Base Dark Gradient ── */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background: "radial-gradient(circle at 75% 40%, #1e1208 0%, #0c101b 100%)"
-        }}
-      />
+    <div className="fixed inset-0 -z-50 overflow-hidden bg-[#0a0c12]">
+      {/* ── 3D Perspective Grid Floor ── */}
+      <div className="absolute inset-0" style={{ perspective: '1000px' }}>
+        <div 
+          className="absolute inset-0 opacity-[0.15]"
+          style={{
+            backgroundImage: `linear-gradient(90deg, #d4700a 1px, transparent 1px), 
+                              linear-gradient(180deg, #d4700a 1px, transparent 1px)`,
+            backgroundSize: '80px 80px',
+            transform: 'rotateX(65deg) translateY(-150px) scale(2.5)',
+            transformOrigin: 'top'
+          }}
+        />
+      </div>
 
-      {/* ── Cybernetic Circuitry & Security Visuals (SVG) ── */}
+      {/* ── Ambient Background Glows ── */}
+      <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-orange-950/20 blur-[140px] rounded-full" />
+      <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-blue-950/10 blur-[100px] rounded-full" />
+
+      {/* ── Main SVG Layer ── */}
       <svg
+        className="absolute inset-0 w-full h-full"
         viewBox="0 0 1400 900"
         preserveAspectRatio="xMidYMid slice"
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
       >
         <defs>
-          <filter id="orange-glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="4" result="blur" />
-            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+          <filter id="circuit-glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+            <feMerge>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
           </filter>
-          
-          <linearGradient id="circuit-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#d4700a" stopOpacity="0.7" />
-            <stop offset="100%" stopColor="#8b3a0a" stopOpacity="0.1" />
-          </linearGradient>
         </defs>
 
-        {/* ── Background Circuit Traces ── */}
-        <g stroke="url(#circuit-grad)" fill="none" strokeWidth="1" opacity="0.3">
-          <path d="M0,200 L200,200 L250,250 L500,250 M150,200 L150,120 L300,120" />
-          <path d="M1400,600 L1200,600 L1100,700 L800,700 M1250,600 L1250,800 L1000,800" />
-          <circle cx="450" cy="150" r="3" fill="#d4700a" />
-          <circle cx="950" cy="750" r="3" fill="#d4700a" />
+        {/* Dense Circuitry (Left) */}
+        <g stroke="#d4700a" strokeWidth="1.5" fill="none" opacity="0.4" filter="url(#circuit-glow)">
+          <path d="M0,150 L150,150 L220,220 L450,220 M180,150 L180,80 L320,40" />
+          <path d="M50,700 L200,700 L280,780 L500,780" />
+          <path d="M-20,450 L100,450 L140,490 L300,490" />
         </g>
 
-        {/* ── Main Security Hub (Right-Center) ── */}
-        <g transform="translate(1050, 420)" filter="url(#orange-glow)">
-          <path 
-            d="M0,-50 L40,-35 V15 C40,40 0,60 0,60 C0,60 -40,40 -40,15 V-35 Z" 
-            stroke="#ff8c00" 
-            strokeWidth="2.5" 
-            fill="rgba(212, 112, 10, 0.05)"
+        {/* ── Central Security Hub (Right Focal Point) ── */}
+        <g transform="translate(1000, 450)">
+          {/* Main Shield/Lock Area */}
+          <motion.rect
+            animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.02, 1] }}
+            transition={{ duration: 5, repeat: Infinity }}
+            x="-45" y="-45" width="90" height="90"
+            fill="rgba(212, 112, 10, 0.08)"
+            stroke="#ff8c00"
+            strokeWidth="2"
           />
-          <rect x="-12" y="-5" width="24" height="20" rx="2" fill="#ff8c00" />
-          <path d="M-8,-5 V-15 A8,8 0 0,1 8,-15 V-5" stroke="#ff8c00" strokeWidth="2.5" fill="none" />
-          
-          {[0, 60, 120, 180, 240, 300].map((angle, i) => (
-            <g key={i} transform={`rotate(${angle})`}>
-              <line x1="70" y1="0" x2="160" y2="0" stroke="#ff8c00" strokeWidth="1" opacity="0.5" />
-              <circle cx="170" cy="0" r="3" fill="#ff8c00" opacity="0.8" />
-            </g>
+          {/* Lock Icon */}
+          <g stroke="#ff8c00" strokeWidth="2.5" fill="none">
+            <rect x="-15" y="2" width="30" height="22" rx="2" />
+            <path d="M-9,2 V-8 A9,9 0 0,1 9,-8 V2" />
+          </g>
+
+          {/* Corrected Animated Radiating Connectors */}
+          {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => (
+            <motion.g 
+              key={i} 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.6 }}
+              transform={`rotate(${angle})`}
+            >
+              <line x1="70" y1="0" x2="190" y2="0" stroke="#ff8c00" strokeWidth="1.5" />
+              <motion.circle
+                animate={{ cx: [70, 190], opacity: [0, 1, 0] }}
+                transition={{ duration: 3, repeat: Infinity, delay: i * 0.4 }}
+                cy="0" r="2.5" fill="#ff8c00"
+              />
+            </motion.g>
           ))}
         </g>
       </svg>
 
-      {/* ── Floating Visual Code Card ── */}
-      <div
-        className="absolute left-[12%] top-[25%] p-5 rounded-lg border border-orange-500/20"
-        style={{
-          background: "rgba(12, 16, 27, 0.75)",
-          backdropFilter: "blur(10px)",
-          fontFamily: "'Fira Code', monospace",
-          width: "320px",
-          boxShadow: "0 20px 50px rgba(0,0,0,0.5)"
-        }}
-      >
-        <div className="text-orange-400/80 text-xs leading-relaxed">
-          <p><span className="text-blue-400">const</span> <span className="text-yellow-400">SecurityEngine</span> = () =&gt; &#123;</p>
-          <p className="pl-4">useEffect(() =&gt; &#123;</p>
-          <p className="pl-8 text-green-400/60">// Initializing Network Security...</p>
-          <p className="pl-8">monitorTraffic(<span className="text-orange-300">'0.0.0.0/0'</span>);</p>
-          <p className="pl-4">&#125;, []);</p>
-          <p>&#125;;</p>
+      {/* ── Data/Terminal Overlays ── */}
+      <div className="absolute left-[12%] top-[25%] pointer-events-none">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          className="p-5 border-l-2 border-orange-500/40 bg-[#0c101b]/60 backdrop-blur-sm space-y-2"
+        >
+          <p className="text-[11px] font-mono text-orange-400/90 tracking-tighter uppercase">
+            &gt; Initializing Security Protocol
+          </p>
+          <div className="text-[10px] font-mono text-orange-200/40 leading-tight">
+            <p>Scanning nodes...</p>
+            <p className="text-green-500/50">ENC: SHA-256 ACTIVE</p>
+            <p>PORT: 8080 [SECURE]</p>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* ── Subsurface Detail Snippet ── */}
+      <div className="absolute bottom-[15%] left-[8%] opacity-25">
+        <div className="flex gap-4 items-end">
+          <div className="h-20 w-[1px] bg-orange-500" />
+          <div className="text-[9px] font-mono text-orange-500 uppercase vertical-text">
+            System_Core_v.4.0
+          </div>
         </div>
       </div>
-
-      {/* System Status Snippet */}
-      <div
-        className="absolute bottom-[20%] left-[8%] p-3 opacity-40"
-        style={{
-          borderLeft: "2px solid #d4700a",
-          color: "#d4700a",
-          fontSize: "10px",
-          fontFamily: "monospace",
-          letterSpacing: "1px"
-        }}
-      >
-        <p>DECRYPT_STATUS: SUCCESS</p>
-        <p>ENCRYPTION: AES-256</p>
-        <p>FIREWALL: ACTIVE</p>
-      </div>
-
-      {/* Subtle Bottom Glow */}
-      <div 
-        className="absolute bottom-0 w-full h-1/3 opacity-20 pointer-events-none"
-        style={{
-          background: "linear-gradient(to top, #d4700a, transparent)"
-        }}
-      />
     </div>
   );
 }
